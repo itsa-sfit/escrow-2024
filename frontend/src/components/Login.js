@@ -1,31 +1,62 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { serverUrl } from "../setup";
+import useUserContext from "../hooks/useUserContext";
 
 const Login = () => {
-  const handleSubmit = (e) => {};
   const [error, setError] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  // const params = useParams();
-  // console.log(params.auth);
+  const { dispatch } = useUserContext();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    if (username && password) {
+      const data = { username: username, password: password };
+      try {
+        const response = await fetch(serverUrl + "/auth/login", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const json = await response.json();
+        if (!response.ok) {
+          const { message } = json;
+          setError(message);
+        } else {
+          dispatch({ type: "LOGIN", payload: json });
+          setUsername("");
+          setPassword("");
+        }
+      } catch (error) {
+        console.log(error);
+        setError(error.message);
+      }
+    }
+  };
+
   return (
     <div className="Login h-full flex flex-col justify-center items-center self-center hover:cursor-default">
-      <h2 className="text-center text-3xl mb-2 text-gray-600 font-semibold">
-        Welcome to <span className="text-red-400">Escrow 2024</span>
+      <h2
+        className="text-center text-3xl font mb-2 text-gray-600"
+        style={{ textShadow: "0 0 10px #00000055" }}
+      >
+        <span className="escrow text-black text-5xl blink_me">ESCROW 2024</span>
       </h2>
       <form
         onSubmit={handleSubmit}
         className={
-          "bg-white p-3 m-2 shadow-md rounded max-w-80 w-1/3 min-w-64" +
+          "glass px-6 py-[20%] m-2 shadow-md rounded-[40px] w-[90%]" +
           (error ? " shadow-red-600/20" : "")
         } // animate-shake is a custom animation defined in index.css
       >
-        <label className="block text-gray-600 text-lg ml-2 mb-1">
+        <label className="block font-bold tracking-widest text-xl second-font text-shadow text-white mb-1">
           Username
         </label>
         <input
-          className="block border-2 border-gray-400 p-1 rounded text-lg focus:border-yellow-400 w-full mb-3"
+          className="block border-2 border-gray-400 p-1 rounded-xl text-lg focus:border-yellow-400 w-full mb-6"
           type="text"
           name="username"
           value={username}
@@ -34,11 +65,11 @@ const Login = () => {
           }}
         />
 
-        <label className="block text-gray-600 text-lg ml-2 mb-1">
+        <label className="block font-bold text-xl tracking-widest second-font text-shadow text-white mb-1">
           Password
         </label>
         <input
-          className="block border-2 border-gray-400 p-1 rounded text-lg focus:border-yellow-400 w-full mb-3"
+          className="block border-2 border-gray-400 p-1 rounded-xl text-lg focus:border-yellow-400 w-full mb-3"
           type="password"
           name="password"
           value={password}
@@ -48,18 +79,12 @@ const Login = () => {
         />
 
         <button
-          className="w-full font-semibold bg-red-500 p-1 text-white text-lg my-2 text-center text-gray-700 hover:bg-red-300  active:bg-yellow-500 active:text-white shadow active:shadow-none transition-colors rounded"
+          className="w-full mt-4 font-semibold bg-black/40 p-1 text-white text-lg my-2 text-center text-gray-700 hover:bg-black/60  active:bg-black active:text-white shadow active:shadow-none transition-colors rounded"
           type="submit"
         >
           Log me in!
         </button>
       </form>
-      <p>
-        Don't have a account?{" "}
-        <Link to="/register" className="text-yellow-500 hover:text-yellow-600">
-          Register
-        </Link>
-      </p>
       {error && (
         <p className="text-pink-700 font-medium text-md tracking-wide">
           {error}

@@ -2,16 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "myFirstFont";
+  src: url("C:\Users\Ajay kumar\Desktop\escrow-2024\frontend\public\SpaceCrusaders-x3DP0.ttf");
+}
+
+.escrow {
+  font-family: "myFirstFont";
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.second-font {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.blink_me {
+  animation: blinker 0.15s linear infinite;
+}
+.text-shadow {
+  text-shadow: 0 0 7px black;
+}
+
+@keyframes blinker {
+  0% {
+    text-shadow: 0 0 7px black;
+  }
+  50% {
+    opacity: 0 0 7px white;
+  }
+  100% {
+    opacity: 0 0 7px black;
+  }
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+/* MyComponent.css */
+
+/* Common styles for all devices */
+
+.mobile-hidden {
+  display: none; /* Hide the element by default on all devices */
+}
+.desktop-hidden {
+  display: block; /* Hide the element by default on all devices */
+}
+.glass {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(+100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.Login {
+  animation: slideIn 1s ease-out;
+}
+
+/* Media query for desktop devices */
+@media (min-width: 768px) {
+  .desktop-hidden {
+    display: none; /* Show the element for desktop devices */
+  }
+  .mobile-hidden {
+    display: flex; /* Hide the element by default on all devices */
+  }
+}
+
+
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 1s steps(100, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
 }
