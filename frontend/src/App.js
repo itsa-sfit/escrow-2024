@@ -1,10 +1,17 @@
-import React, {useState} from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 function App() {
-  const [count, setCount] = useState("hello world");
   return (
-    <div className="App">
-      <h1 onClick={() => {setCount("Fuck You!!")}}>{count}</h1>
+    <div className="App bg-gray-100 h-dvh">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
