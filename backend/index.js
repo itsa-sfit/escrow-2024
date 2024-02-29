@@ -3,10 +3,13 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import cors from "cors";
-// Express Routes
-import apiRoutes from "./Routes/apiRoutes.js";
-import authRoutes from "./Routes/authRoutes.js";
-// Socket Server
+import { UserModel } from "./model.js";
+
+import jwt from "jsonwebtoken";
+
+const generateToken = (_id) => {
+  return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: "2d" });
+};
 
 // Backend PORT
 const port = process.env.PORT || 4000;
@@ -24,14 +27,53 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware: To add routes
-app.use("/auth/", authRoutes);
+app.post("/register", async (req, res) => {
+  const { name, email, phone, storyline } = req.body;
+  if (!name || !email || !phone || !storyline) {
+    return res.status(400).json({ message: "Missing Credentials" });
+  }
+  const user = await UserModel.findOne({ email });
+  console.log(user);
+  if (user) {
+    return res.status(400).json({ message: "email already exist" });
+  }
+  try {
+    const user = await UserModel.create({
+      name,
+      email,
+      phone,
+      storyline,
+      password: phone,
+    });
+    const token = generateToken(user._id);
+    return res
+      .status(200)
+      .json({ _id: user._id, username: user.username, token });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json(err);
+  }
+});
 
-app.use("/api/", apiRoutes);
-
-app.get("/status", (req, res) => {
-  return res.status(200).json({ message: "Server is running" });
-})
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ message: "username and password required" });
+  }
+  const user = await UserModel.findOne({ email });
+  if (!user) {
+    return res.status(404).json({ message: "invalid username" });
+  } else {
+    if (user.password === password) {
+      const token = generateToken(user._id);
+      return res
+        .status(200)
+        .json({ _id: user._id, username: user.username, token });
+    } else {
+      return res.status(400).json({ message: "passeord doesn't match" });
+    }
+  }
+});
 
 // Connect to MongoDB
 mongoose

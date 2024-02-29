@@ -5,8 +5,8 @@ const userContext = createContext();
 const userReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      localStorage.setItem("user", JSON.stringify(action.payload));
-      return { user: action.payload };
+      localStorage.setItem("user", JSON.stringify(action.payload.access_token));
+      return { user: action.payload.access_token };
     case "LOGOUT":
       localStorage.removeItem("user");
       return { user: null };

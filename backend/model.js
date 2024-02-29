@@ -4,8 +4,18 @@ const { Schema } = mongoose;
 
 // User document Schema
 const UserSchema = Schema({
-  username: {
+  name: {
     type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  phone: {
+    type: Number,
     required: true,
     unique: true,
   },
@@ -13,23 +23,19 @@ const UserSchema = Schema({
     type: String,
     required: true,
   },
-  groups: [
-    {
-      _id: {
-        type: mongoose.Types.ObjectId,
-        ref: "groups",
-        required: true,
-      },
-      groupName: {
-        type: String,
-        ref: "groups",
-        required: true
-      },
-    },
-  ],
-  createdAt: {
+  storyline: {
+    type: String,
+    required: true,
+  },
+  startTime: {
     type: Date,
-    default: Date.now,
+  },
+  endTime: {
+    type: Date,
+  },
+  progress: {
+    type: Number,
+    default: 0,
   },
 });
 
@@ -37,68 +43,36 @@ const UserSchema = Schema({
 const UserModel = mongoose.model("user", UserSchema);
 
 // Group document Schema
-const GroupSchema = new Schema({
+const StorySchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  users: [
+  quiz: [
     {
       _id: {
         type: mongoose.Types.ObjectId,
         ref: "users",
         required: true,
       },
-      userName: {
+      question: {
         type: String,
-        ref: "users",
-        required: true
-      },
-      role: {
-        type: String,
-        enum: ["admin", "member"],
-        default: "member",
-      },
-      joinedAt: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-  ],
-  chats: [
-    {
-      _id: { 
-        type: mongoose.Types.ObjectId, 
-        required: true 
-      },
-      body: { 
-        type: String, 
-        required: true 
-      },
-      userid: {
-        type: mongoose.Types.ObjectId,
-        ref: "usesr",
         required: true,
       },
-      userName: {
-        type: String,
-        ref: "users",
-        required: true
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
+      answer: [
+        {
+          type: String,
+        },
+      ],
+      hint: {
+        type: String, 
       },
     },
   ],
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
 });
 
 // Group document Model
-const GroupModel = mongoose.model("group", GroupSchema);
+const StoryModel = mongoose.model("story", StorySchema);
 
 // Export
-export { UserModel, GroupModel };
+export { UserModel, StoryModel };

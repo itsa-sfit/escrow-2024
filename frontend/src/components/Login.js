@@ -14,13 +14,27 @@ const Login = () => {
     if (username && password) {
       const data = { username: username, password: password };
       try {
-        const response = await fetch(serverUrl + "/auth/login", {
+        // For Python Backend
+        let data = new FormData();
+        data.append("username", username);
+        data.append("password", password);
+        const response = await fetch("http://127.0.0.1:8000" + "/user/login", {
           method: "POST",
-          body: JSON.stringify(data),
+          body: data,
           headers: {
-            "Content-Type": "application/json",
+            Accept: "application/json",
           },
         });
+        
+        // For Node.js Backend
+
+        // const response = await fetch(serverUrl + "/auth/login", {
+        //   method: "POST",
+        //   body: JSON.stringify(data),
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // });
         const json = await response.json();
         if (!response.ok) {
           const { message } = json;
