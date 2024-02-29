@@ -1,10 +1,11 @@
 import React from "react";
 import useUserContext from "../hooks/useUserContext";
+import { serverUrl } from "../setup";
 
 const Instruction = () => {
-  const { user } = useUserContext();
+  const { user, dispatch } = useUserContext();
   const handleClick = async () => {
-    const response = await fetch("http://127.0.0.1:8000" + "/start", {
+    const response = await fetch(serverUrl + "/time/start", {
       headers: {
         Authorization: "Bearer " + user.token,
         Accept: "application/json",
@@ -13,8 +14,13 @@ const Instruction = () => {
     const json = await response.json();
     if (!response.ok) {
       const { message } = json;
+      console.log(message);
     } else {
-      
+      console.log(json);
+      dispatch({
+        type: "LOGIN",
+        payload: { token: user.token, start_time: json.start_time },
+      });
     }
   };
 

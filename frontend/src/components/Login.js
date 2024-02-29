@@ -17,23 +17,13 @@ const Login = () => {
         let data = new FormData();
         data.append("username", username);
         data.append("password", password);
-        const response = await fetch("http://127.0.0.1:8000" + "/user/login", {
+        const response = await fetch(serverUrl+ "/user/login", {
           method: "POST",
           body: data,
           headers: {
             Accept: "application/json",
           },
         });
-
-        // For Node.js Backend
-
-        // const response = await fetch(serverUrl + "/auth/login", {
-        //   method: "POST",
-        //   body: JSON.stringify(data),
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // });
 
         const json = await response.json();
         if (!response.ok) {
@@ -42,7 +32,7 @@ const Login = () => {
         } else {
           dispatch({
             type: "LOGIN",
-            payload: { token: json.access_token, start: json.start_time },
+            payload: { token: json.access_token, start_time: json.start_time },
           });
           setUsername("");
           setPassword("");

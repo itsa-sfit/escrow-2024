@@ -1,2 +1,2 @@
-const serverUrl = "http://localhost:4000"
-export {serverUrl}
+const serverUrl = "http://192.168.1.101:8000";
+export { serverUrl };

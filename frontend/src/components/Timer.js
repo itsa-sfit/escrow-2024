@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Timer = ({ hours, minutes, seconds }) => {
   // Convert props to numbers
@@ -8,7 +8,9 @@ const Timer = ({ hours, minutes, seconds }) => {
   targetTime.setSeconds(parseInt(seconds));
 
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [timeElapsed, setTimeElapsed] = useState(currentTime.getTime() - targetTime.getTime());
+  const [timeElapsed, setTimeElapsed] = useState(
+    currentTime.getTime() - targetTime.getTime()
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,13 +29,16 @@ const Timer = ({ hours, minutes, seconds }) => {
   };
 
   const hoursElapsed = Math.floor(timeElapsed / (1000 * 60 * 60));
-  const minutesElapsed = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
+  const minutesElapsed = Math.floor(
+    (timeElapsed % (1000 * 60 * 60)) / (1000 * 60)
+  );
   const secondsElapsed = Math.floor((timeElapsed % (1000 * 60)) / 1000);
 
   return (
-    <div>
-      <p>Time Elapsed: {formatTime(hoursElapsed)}:{formatTime(minutesElapsed)}:{formatTime(secondsElapsed)}</p>
-    </div>
+    <span>
+      {formatTime(hoursElapsed)}:{formatTime(minutesElapsed)}:
+      {formatTime(secondsElapsed)}
+    </span>
   );
 };
 
