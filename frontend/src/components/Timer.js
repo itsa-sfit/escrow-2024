@@ -7,39 +7,32 @@ const Timer = ({ hours, minutes, seconds }) => {
   targetTime.setMinutes(parseInt(minutes));
   targetTime.setSeconds(parseInt(seconds));
 
-  const [timeLeft, setTimeLeft] = useState(targetTime.getTime() - new Date().getTime());
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [timeElapsed, setTimeElapsed] = useState(currentTime.getTime() - targetTime.getTime());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prevTimeLeft => {
-        if (prevTimeLeft <= 0) {
-          clearInterval(timer);
-          // Handle timer completion here
-          console.log("Timer completed!");
-          return 0;
-        } else {
-          return prevTimeLeft - 1000;
-        }
-      });
+      setCurrentTime(new Date());
     }, 1000);
-
-    // Calculate initial time difference after setting up the interval
-    setTimeLeft(targetTime.getTime() - new Date().getTime());
 
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    setTimeElapsed(currentTime.getTime() - targetTime.getTime());
+  }, [currentTime]);
+
   const formatTime = (time) => {
-    return time < 10 ? `0${time}` : `${time}`
+    return time < 10 ? `0${time}` : `${time}`;
   };
 
-  const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
-  const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  const hoursElapsed = Math.floor(timeElapsed / (1000 * 60 * 60));
+  const minutesElapsed = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
+  const secondsElapsed = Math.floor((timeElapsed % (1000 * 60)) / 1000);
 
   return (
     <div>
-      <p>Time Left: {formatTime(hoursLeft)}:{formatTime(minutesLeft)}:{formatTime(secondsLeft)}</p>
+      <p>Time Elapsed: {formatTime(hoursElapsed)}:{formatTime(minutesElapsed)}:{formatTime(secondsElapsed)}</p>
     </div>
   );
 };
