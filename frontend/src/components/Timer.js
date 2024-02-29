@@ -30,7 +30,7 @@ const Timer = ({ hours, minutes, seconds }) => {
   }, []);
 
   const formatTime = (time) => {
-    return time < 10 ? `0${time}` : `${time}`;
+    return time < 10 ? `0${time}` : `${time}`
   };
 
   const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
