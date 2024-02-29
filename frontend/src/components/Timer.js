@@ -22,7 +22,7 @@ const Timer = ({ hours, minutes, seconds }) => {
 
   useEffect(() => {
     setTimeElapsed(currentTime.getTime() - targetTime.getTime());
-  }, [currentTime]);
+  }, [currentTime, targetTime]);
 
   const formatTime = (time) => {
     return time < 10 ? `0${time}` : `${time}`;
