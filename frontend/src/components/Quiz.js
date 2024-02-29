@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Timer from "./Timer";
+// import Timer from "./Timer";
 import useUserContext from "../hooks/useUserContext";
 import { serverUrl } from "../setup";
 import Zodiac from "../story/zodiac/Zodiac";
@@ -30,7 +30,7 @@ const Quiz = () => {
       <div className="glass p-2 mt-2">
         <div className="text-white text-2xl font-bold flex justify-around mb-2">
           <span>Quiz {quiz}</span>
-          <Timer {...user.start_time} />
+          {/* <Timer {...user.start_time} /> */}
         </div>
         <HarryPotter quiz={quiz} setQuiz={setQuiz} />
         <Zodiac quiz={quiz} setQuiz={setQuiz} />
