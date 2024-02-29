@@ -1,2 +1,3 @@
-const serverUrl = "http://192.168.1.101:8000";
+// const serverUrl = "https://sinuous-transit-415706.el.r.appspot.com";
+const serverUrl = "http://localhost:8000";
 export { serverUrl };

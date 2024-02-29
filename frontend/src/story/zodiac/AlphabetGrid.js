@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Crossword = ({ setQuiz }) => {
+const AlphabetGrid = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
   const [q3, setQ3] = useState("");
   const [q4, setQ4] = useState("");
+  const [q5, setQ5] = useState("");
+  const [q6, setQ6] = useState("");
   const { user } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (q1 && q2 && q3 && q4) {
-      const data = { answer: `${q1},${q2},${q3},${q4}` };
+    if (q1 && q2 && q3 && q4 && q5 && q6) {
+      const data = { answer: `${q1},${q2},${q3},${q4},${q5},${q6}` };
       try {
-        const response = await fetch(serverUrl + "/question/1", {
+        const response = await fetch(serverUrl + "/question/4", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -24,7 +26,7 @@ const Crossword = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("instagram");
+          setQuiz("binary grid");
         }
       } catch (e) {
         console.log(e);
@@ -34,62 +36,73 @@ const Crossword = ({ setQuiz }) => {
   return (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2">
-        In the dimly lit room, you found an old, dusty crossword puzzle
-        scattered across a table. The squares contain cryptic clues that, when
-        solved, unveil words related to the elusive Zodiac. As you piece
-        together the crossword, hidden messages emerge, guiding you to the next
-        challenge.
+        A mysterious alphabet grid awaits you, filled with seemingly random
+        letters. Little do you know, these letters conceal the secrets of the
+        zodiac signs. By carefully selecting and rearranging the appropriate
+        alphabets, unlock the celestial symbols that hold crucial information in
+        the pursuit of the elusive Zodiac Killer. (Find six zodiac signs)
       </h1>
       <img
-        src="img/crossword.png"
+        src="img/alphabetGrid.png"
         alt=""
         className="w-full h-auto object-contain rounded-lg shadow-lg"
       />
 
       <form action="" className="text-left" onSubmit={handleSubmit}>
-        <h1 className="mt-2">1.capable of being changed</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black my-2"
           name="1"
           value={q1}
           onChange={(e) => {
             setQ1(e.target.value);
           }}
         />
-        <h1 className="mt-2">
-          2.the third planet from the sun in our solar system
-        </h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black my-2"
           name="2"
           value={q2}
           onChange={(e) => {
             setQ2(e.target.value);
           }}
         />
-        <h1 className="mt-2">3.the universal solvent</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black my-2"
           name="3"
           value={q3}
           onChange={(e) => {
             setQ3(e.target.value);
           }}
         />
-        <h1 className="mt-2">4.set in place, not subject to change</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black my-2"
           name="4"
           value={q4}
           onChange={(e) => {
             setQ4(e.target.value);
           }}
         />
-        <br />
+        <input
+          type="text"
+          className="w-full text-black my-2"
+          name="3"
+          value={q5}
+          onChange={(e) => {
+            setQ5(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          className="w-full text-black my-2"
+          name="4"
+          value={q6}
+          onChange={(e) => {
+            setQ6(e.target.value);
+          }}
+        />
         <br />
         <button
           type="sumbit"
@@ -102,4 +115,4 @@ const Crossword = ({ setQuiz }) => {
   );
 };
 
-export default Crossword;
+export default AlphabetGrid;

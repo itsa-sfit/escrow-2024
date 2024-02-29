@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Instagram = ({ setQuiz }) => {
+const GuessRiddle = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
@@ -11,7 +11,7 @@ const Instagram = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/2", {
+        const response = await fetch(serverUrl + "/question/7", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -21,7 +21,7 @@ const Instagram = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("circular chart");
+          setQuiz("killer");
         }
       } catch (e) {
         console.log(e);
@@ -32,11 +32,10 @@ const Instagram = ({ setQuiz }) => {
     <div className="font-medium text-lg text-white">
       <form action="" className="text-left" onSubmit={handleSubmit}>
         <h1 className="my-2">
-          The professor's name conceals the digital path you seek. Look to the
-          scholarly stars, where wisdom meets temporality, to unravel the
-          ciphered username on Instagram. In the leap, find the key to open the
-          next door in our cosmic quest. (hint- professor’s name and this leap
-          year)
+          The enigma doesn't stop there. A riddle, shrouded in mystery, demands
+          your attention. Like a cryptic whisper from the shadows, the riddle
+          challenges your intellect. Every correct answer brings you closer to
+          the heart of the Zodiac's elusive truth. (hint:Name of a zodiac sign)
         </h1>
         <input
           type="text"
@@ -59,4 +58,4 @@ const Instagram = ({ setQuiz }) => {
   );
 };
 
-export default Instagram;
+export default GuessRiddle;

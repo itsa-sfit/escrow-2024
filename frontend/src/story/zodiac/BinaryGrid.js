@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Instagram = ({ setQuiz }) => {
+const BinaryGrid = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
@@ -11,7 +11,7 @@ const Instagram = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/2", {
+        const response = await fetch(serverUrl + "/question/5", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -21,7 +21,7 @@ const Instagram = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("circular chart");
+          setQuiz("missing grid");
         }
       } catch (e) {
         console.log(e);
@@ -30,14 +30,21 @@ const Instagram = ({ setQuiz }) => {
   };
   return (
     <div className="font-medium text-lg text-white">
+      <h1 className="my-2">
+        As you continue through the celestial trail, a coded puzzle, composed of
+        binary numbers, presents itself. Delve into decoding the binary
+        sequence, meticulously deciphering 0s and 1s to reveal a single, cryptic
+        number. This number, once unveiled, holds the key to advancing further
+        in the quest to unmask the Zodiac Killer. (one single number indicating
+        the number of letters in sign)
+      </h1>
+
+      <img
+        src="img/binaryGrid.png"
+        alt=""
+        className="w-full h-auto object-contain mb-2 rounded-lg shadow-lg"
+      />
       <form action="" className="text-left" onSubmit={handleSubmit}>
-        <h1 className="my-2">
-          The professor's name conceals the digital path you seek. Look to the
-          scholarly stars, where wisdom meets temporality, to unravel the
-          ciphered username on Instagram. In the leap, find the key to open the
-          next door in our cosmic quest. (hint- professor’s name and this leap
-          year)
-        </h1>
         <input
           type="text"
           className="w-full text-black"
@@ -59,4 +66,4 @@ const Instagram = ({ setQuiz }) => {
   );
 };
 
-export default Instagram;
+export default BinaryGrid;

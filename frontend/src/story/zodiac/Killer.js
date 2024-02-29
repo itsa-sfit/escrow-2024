@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Instagram = ({ setQuiz }) => {
+const Killer = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
@@ -11,7 +11,7 @@ const Instagram = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/2", {
+        const response = await fetch(serverUrl + "/question/8", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -21,7 +21,7 @@ const Instagram = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("circular chart");
+          setQuiz("success");
         }
       } catch (e) {
         console.log(e);
@@ -32,11 +32,11 @@ const Instagram = ({ setQuiz }) => {
     <div className="font-medium text-lg text-white">
       <form action="" className="text-left" onSubmit={handleSubmit}>
         <h1 className="my-2">
-          The professor's name conceals the digital path you seek. Look to the
-          scholarly stars, where wisdom meets temporality, to unravel the
-          ciphered username on Instagram. In the leap, find the key to open the
-          next door in our cosmic quest. (hint- professor’s name and this leap
-          year)
+          Unlock the final enigma. The Zodiac Killer's true identity is
+          concealed within the arrangement of letters. The culmination of your
+          journey hinges on this final decryption. Trust the stars, and let the
+          name emerge from the cosmic tapestry you've woven. (The previous
+          answer holds the clue to the Zodiac Killer’s name)
         </h1>
         <input
           type="text"
@@ -59,4 +59,4 @@ const Instagram = ({ setQuiz }) => {
   );
 };
 
-export default Instagram;
+export default Killer;
