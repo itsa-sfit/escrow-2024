@@ -12,7 +12,6 @@ const Login = () => {
     e.preventDefault();
     setError(null);
     if (username && password) {
-      const data = { username: username, password: password };
       try {
         // For Python Backend
         let data = new FormData();
@@ -25,7 +24,7 @@ const Login = () => {
             Accept: "application/json",
           },
         });
-        
+
         // For Node.js Backend
 
         // const response = await fetch(serverUrl + "/auth/login", {
@@ -35,12 +34,16 @@ const Login = () => {
         //     "Content-Type": "application/json",
         //   },
         // });
+
         const json = await response.json();
         if (!response.ok) {
           const { message } = json;
           setError(message);
         } else {
-          dispatch({ type: "LOGIN", payload: json });
+          dispatch({
+            type: "LOGIN",
+            payload: { token: json.access_token, start: json.start_time },
+          });
           setUsername("");
           setPassword("");
         }
