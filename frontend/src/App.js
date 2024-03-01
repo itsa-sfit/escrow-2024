@@ -15,12 +15,13 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
+              element={user ? <Home /> : <Login/>}
             />
-            <Route
+            {/* <Route
               path="/login"
               element={user ? <Navigate to="/" /> : <Login />}
-            />
+            /> */}
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
       </div>
