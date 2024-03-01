@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Intro = ({ setIntro }) => {
   console.log("Intro");
@@ -71,8 +72,8 @@ const Spell = ({ setQuiz }) => {
 
         <input
           type="text"
-          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
-          placeholder=" Cast your spell here"
+          className="w-full text-black/70 mt-2 placeholder:text-sm rounded-lg mb-2 px-2 py-1"
+          placeholder="Input only understand NATO phonetic alphabets"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -88,6 +89,9 @@ const Spell = ({ setQuiz }) => {
           Submit
         </button>
       </form>
+      <Hint
+        hintText={"NATO phonetic alphabets means if answer is ITSA , input will be India Tango Sierra Alpha"}
+      />
     </div>
   );
 };
