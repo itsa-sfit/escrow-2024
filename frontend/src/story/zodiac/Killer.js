@@ -39,14 +39,14 @@ const Killer = ({ setQuiz }) => {
         className="text-left flex flex-col justify-start items-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="my-2">
+        <h1 className="my-2 text-justify ">
           You stand at the precipice of revelation, poised to guess who spoke
           these chilling words. your choices hold the key to unveiling the
           identity of the Zodiac Killer, bringing an end to their cryptic reign.
           Trust your instincts and plunge into the final chapter of this cosmic
           quest.
         </h1>
-        <h1 className="mb-2">
+        <h1 className="mb-2 text-justify">
           A series of cryptic quotes, like haunting echoes from the past,
           confront you with the enigma of the killer's identity.
         </h1>
@@ -54,7 +54,8 @@ const Killer = ({ setQuiz }) => {
         <em>“I don't care if I live or die. Go ahead and kill me.”</em>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {

@@ -38,13 +38,12 @@ const CircularChart = ({ setQuiz }) => {
 
   return (
     <div className="font-medium text-lg text-white">
-      <h1 className="my-2">
+      <h1 className="my-2 text-justify">
         Armed with the professor's Instagram profile, you have to decipher the
         celestial chart. Words from the crossword unveil a hidden narrative,
         revealing the Zodiac's secrets. With each puzzle piece falling into
         place, you edge closer to unmasking the elusive killer
       </h1>
-
       <form
         action=""
         className="text-left flex flex-col justify-start items-center"
@@ -52,7 +51,8 @@ const CircularChart = ({ setQuiz }) => {
       >
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -61,7 +61,8 @@ const CircularChart = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="2"
           value={q2}
           onChange={(e) => {
@@ -70,7 +71,8 @@ const CircularChart = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="3"
           value={q3}
           onChange={(e) => {
@@ -79,7 +81,8 @@ const CircularChart = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="4"
           value={q4}
           onChange={(e) => {
@@ -88,10 +91,10 @@ const CircularChart = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="submit"
+          type="sumbit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Submit
+          Sumbit
         </button>
       </form>
       <Hint hintText={"four zodiac signs relevant to the previous answers"} />

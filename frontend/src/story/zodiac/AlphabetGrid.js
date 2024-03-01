@@ -38,7 +38,7 @@ const AlphabetGrid = ({ setQuiz }) => {
   };
   return (
     <div className="font-medium text-lg text-white">
-      <h1 className="my-2">
+      <h1 className="my-2 text-justify">
         A mysterious alphabet grid awaits you, filled with seemingly random
         letters. Little do you know, these letters conceal the secrets of the
         zodiac signs. By carefully selecting and rearranging the appropriate
@@ -58,7 +58,8 @@ const AlphabetGrid = ({ setQuiz }) => {
       >
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -67,7 +68,8 @@ const AlphabetGrid = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="2"
           value={q2}
           onChange={(e) => {
@@ -76,7 +78,8 @@ const AlphabetGrid = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="3"
           value={q3}
           onChange={(e) => {
@@ -85,7 +88,8 @@ const AlphabetGrid = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="4"
           value={q4}
           onChange={(e) => {
@@ -94,7 +98,8 @@ const AlphabetGrid = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="3"
           value={q5}
           onChange={(e) => {
@@ -103,7 +108,8 @@ const AlphabetGrid = ({ setQuiz }) => {
         />
         <input
           type="text"
-          className="w-full text-black my-2"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="4"
           value={q6}
           onChange={(e) => {
@@ -112,7 +118,7 @@ const AlphabetGrid = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="submit"
+          type="sumbit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Submit

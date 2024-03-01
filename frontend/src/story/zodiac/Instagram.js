@@ -36,10 +36,10 @@ const Instagram = ({ setQuiz }) => {
     <div className="font-medium text-lg text-white">
       <form
         action=""
-        className="text-left flex items-center justify-center flex-col"
+        className="text-left flex flex-col justify-start items-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="my-2">
+        <h1 className="my-2 text-justify">
           The professor's name conceals the digital path you seek. Look to the
           scholarly stars, where wisdom meets temporality, to unravel the
           ciphered username on Instagram. In the leap, find the key to open the
@@ -47,7 +47,8 @@ const Instagram = ({ setQuiz }) => {
         </h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -56,11 +57,11 @@ const Instagram = ({ setQuiz }) => {
         />
 
           {error && <h1 className="text-red-500">Incorrect answer</h1>}
-        <button
-          type="submit"
+          <button
+          type="sumbit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Submit
+          Sumbit
         </button>
       </form>
       <Hint hintText="The professor's name is the key to the next door." />

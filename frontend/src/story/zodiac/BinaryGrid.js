@@ -34,7 +34,7 @@ const BinaryGrid = ({ setQuiz }) => {
   };
   return (
     <div className="font-medium text-lg text-white">
-      <h1 className="my-2">
+      <h1 className="my-2 text-justify">
         As you continue through the celestial trail, a coded puzzle, composed of
         binary numbers, presents itself. Delve into decoding the binary
         sequence, meticulously deciphering 0s and 1s to reveal a single, cryptic
@@ -45,7 +45,7 @@ const BinaryGrid = ({ setQuiz }) => {
       <img
         src="img/binaryGrid.png"
         alt=""
-        className="w-full h-auto object-contain mb-2 rounded-lg shadow-lg"
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
       />
       <form
         action=""
@@ -54,7 +54,8 @@ const BinaryGrid = ({ setQuiz }) => {
       >
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -63,10 +64,10 @@ const BinaryGrid = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="submit"
-          className="border-2 border-white p-2 m-2 rounded-lg w-[50%]"
+          type="sumbit"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Submit
+          Sumbit
         </button>
       </form>
       <Hint hintText="one single number indicating the number of letters in sign" />

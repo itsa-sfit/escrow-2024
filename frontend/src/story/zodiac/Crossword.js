@@ -7,7 +7,7 @@ const Intro = ({ setIntro }) => {
   return (
     <div className="font-medium text-lg text-white">
       <h1 className="mt-2 font-bold">STORY</h1>
-      <h1 className="my-2">
+      <h1 className="my-2 text-justify">
         In the dimly lit room, you found an old, dusty crossword puzzle
         scattered across a table. The squares contain cryptic clues that, when
         solved, unveil words related to the elusive Zodiac. As you piece
@@ -62,7 +62,7 @@ const Crossword = ({ setQuiz }) => {
     <Intro setIntro={setIntro} />
   ) : (
     <div className="font-medium text-lg text-white">
-      <h1 className="my-2">
+      <h1 className="my-2 text-justify">
         In the dimly lit room, you found an old, dusty crossword puzzle
         scattered across a table. The squares contain cryptic clues that, when
         solved, unveil words related to the elusive Zodiac. As you piece
@@ -83,7 +83,8 @@ const Crossword = ({ setQuiz }) => {
         <h1 className="mt-2 text-center">1.capable of being changed</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -95,7 +96,8 @@ const Crossword = ({ setQuiz }) => {
         </h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="2"
           value={q2}
           onChange={(e) => {
@@ -105,7 +107,8 @@ const Crossword = ({ setQuiz }) => {
         <h1 className="mt-2">3.the universal solvent</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="3"
           value={q3}
           onChange={(e) => {
@@ -115,7 +118,8 @@ const Crossword = ({ setQuiz }) => {
         <h1 className="mt-2">4.set in place, not subject to change</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="4"
           value={q4}
           onChange={(e) => {
@@ -124,10 +128,10 @@ const Crossword = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="submit"
+          type="sumbit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Submit
+          Sumbit
         </button>
       </form>
     </div>

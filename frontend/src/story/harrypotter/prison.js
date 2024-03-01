@@ -43,7 +43,7 @@ const Prison = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("success");
+          setQuiz("harry_success");
         } else {
           setError(true);
         }

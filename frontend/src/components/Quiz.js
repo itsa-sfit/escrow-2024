@@ -31,7 +31,7 @@ const Quiz = () => {
     <div className="Quiz grow flex items-center">
       <div className="glass p-2 mt-2 w-full">
         <div className="text-white text-2xl font-bold flex justify-around mb-2">
-          {quiz === "success" ? null : (
+          {quiz === "success" || quiz === "harry_success" ? null : (
             <>
               <span>Time Counter:</span>
               <Timer {...user.start_time} />

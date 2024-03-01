@@ -6,6 +6,7 @@ import Flower from "./flower";
 import Gravity from "./gravity";
 import Animal from "./animal";
 import Prison from "./prison";
+import Success from "./Success";
 
 const HarryPotter = ({ quiz, setQuiz }) => {
   return (
@@ -18,7 +19,7 @@ const HarryPotter = ({ quiz, setQuiz }) => {
       {quiz === "gravity" && <Gravity setQuiz={setQuiz} />}
       {quiz === "animal" && <Animal setQuiz={setQuiz} />}
       {quiz === "prison" && <Prison setQuiz={setQuiz} />}
-      
+      {quiz === "harry_success" && <Success />}
     </div>
   );
 };
