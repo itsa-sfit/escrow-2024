@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const Timer = ({ hours, minutes, seconds }) => {
-  
-  const targetTime = new Date();
-  targetTime.setHours(parseInt(hours));
-  targetTime.setMinutes(parseInt(minutes));
-  targetTime.setSeconds(parseInt(seconds));
+  const targetTime = useMemo(() => {
+    const time = new Date();
+    time.setHours(parseInt(hours));
+    time.setMinutes(parseInt(minutes));
+    time.setSeconds(parseInt(seconds));
+    return time;
+  }, [hours, minutes, seconds]);
 
   const [currentTime, setCurrentTime] = useState(new Date());
   const [timeElapsed, setTimeElapsed] = useState(currentTime.getTime() - targetTime.getTime());

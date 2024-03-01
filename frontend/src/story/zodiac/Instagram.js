@@ -55,11 +55,11 @@ const Instagram = ({ setQuiz }) => {
           }}
         />
 
+          {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
           type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          {error && <h1 className="text-red-500">Incorrect answer</h1>}
           Submit
         </button>
       </form>
