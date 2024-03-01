@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Mantra = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -58,6 +59,7 @@ const Mantra = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
+      <Hint hintText={"first two words rhyme with  each other"} />
     </div>
   );
 };

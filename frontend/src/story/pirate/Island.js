@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Island = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -36,7 +37,7 @@ const Island = ({ setQuiz }) => {
         straightforward. Instead, a cryptic riddle awaited, teasing the location
         of the coveted treasure
       </h1>
-      <h1 className="my-2">
+      <h1 className="my-2 font-bold">
         Riddle: Im a land of silence where life takes its last breath Surrounded
         by waves a solitary depth Isolated and still with secrets untold Deep in
         the darkness lies a grim reaper where visitors enter but none ever hold
@@ -62,6 +63,7 @@ const Island = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
+      <Hint hintText={"translate answer to Spanish"} />
     </div>
   );
 };

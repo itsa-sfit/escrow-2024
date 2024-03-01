@@ -31,7 +31,7 @@ const Instagram = ({setQuiz}) => {
   return (
     <div className="font-medium text-lg">
       <h1 className="my-2">
-      Under the mighty waves on the seabed you will find the map that will guide you in this adventures voyage   
+      Under the mighty waves on the seabed you will find the map that will guide you in this adventures voyage .Enter the number you find along with the correct map.  
       </h1>
       
       <form action="" className="text-left" onSubmit={handleSubmit}>
