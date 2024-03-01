@@ -2,7 +2,31 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
+const Intro = ({ setIntro }) => {
+  console.log("Intro");
+  return (
+    <div className="font-medium text-lg text-white">
+    <h1 className="mt-2">STORY</h1>
+      <h1 className="my-2">
+        In the dimly lit room, you found an old, dusty crossword puzzle
+        scattered across a table. The squares contain cryptic clues that, when
+        solved, unveil words related to the elusive Zodiac. As you piece
+        together the crossword, hidden messages emerge, guiding you to the next
+        challenge.
+      </h1>
+      <button
+        onClick={() => setIntro(false)}
+        type="submit"
+        className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
 const Crossword = ({ setQuiz }) => {
+  const [intro, setIntro] = useState(true);
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
   const [q3, setQ3] = useState("");
@@ -34,7 +58,9 @@ const Crossword = ({ setQuiz }) => {
       }
     }
   };
-  return (
+  return intro ? (
+    <Intro setIntro={setIntro} />
+  ) : (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2">
         In the dimly lit room, you found an old, dusty crossword puzzle
