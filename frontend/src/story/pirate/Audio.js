@@ -32,7 +32,7 @@ const Audio = ({setQuiz}) => {
   return (
     <div className="font-medium text-lg">
       <h1 className="my-2">
-      Disturbed Parrot’s voice(tells about the map of treasure lies in a ocean and mention the password of ocean account) 
+      Disturbed Parrot’s voice tells about the map of treasure lies in a ocean and mention the id of ocean account
       </h1>
       
       <form action="" className="text-left" onSubmit={handleSubmit}>

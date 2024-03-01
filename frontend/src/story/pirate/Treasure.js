@@ -40,9 +40,14 @@ const Treasure = ({ setQuiz }) => {
       <h1 className="my-2">
         Riddle: Your journey throughout the voyage has been commendable. Your
         wits and reselience to the very end is second to none....But you failed
-        to notice one thing:"you began this journey with me and you will end it
-        with me, follow the path where shadows whisper secrets, where the silent
-        sentinel of ebony feathers guards the key to untold riches
+        to notice one thing:
+        <b className="text-bold">
+          "you began this journey with me and you will end it with me{" "}
+        </b>
+        , follow the path where <b className="text-bold">shadows </b>whisper
+        secrets, where the silent sentinel of{" "}
+        <b className="text-bold">ebony feathers</b> guards the key to untold
+        riches
       </h1>
 
       <form action="" className="text-left" onSubmit={handleSubmit}>
