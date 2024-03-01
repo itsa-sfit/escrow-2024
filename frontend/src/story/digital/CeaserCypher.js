@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "../../components/Hint";
 
-const Cipher = ({ setQuiz }) => {
+const CeaserCypher = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState(false);
 
-  const handleSubmit
-   = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (q1) {
       const data = { answer: `${q1}` };
       try {
@@ -23,7 +22,9 @@ const Cipher = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("prison");
+          setQuiz("program");
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -31,38 +32,43 @@ const Cipher = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg">
-      <h1 className="my-2">
+    <div className="font-medium text-lg text-white">
+      <h1 className="my-2 text-justify">
         As you journey through the encrypted realms, remember that each layer of
         secrecy has different encryption techniques like Caesar ciphers with a
         challenge to overcome. Unravel the intertwined codes, layer by layer,
         with creative minds united in deciphering the cryptic whispers of the
-        digital domain. Cipher Text:- v j t i f j a v t y a i r y s
+        digital domain.
+      </h1>
+      <h1 className="my-2 text-justify">
+        Cipher Text:- <code>v j t i f n k v t y k i r z c</code>
       </h1>
 
-      <form action="" className="text-left" onSubmit={handleSubmit}>
-        <h1 className="mt-2">Enter answer :</h1>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
-          className="w-full"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
             setQ1(e.target.value);
           }}
         />
-        <br />
-        <br />
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
       </form>
-      <Hint hintText={"initials of each reveals the answer"} />
     </div>
   );
 };
 
-export default Cipher;
+export default CeaserCypher;

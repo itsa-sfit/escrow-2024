@@ -2,7 +2,31 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Ascii = ({ setQuiz }) => {
+const Intro = ({ setIntro }) => {
+  console.log("Intro");
+  return (
+    <div className="font-medium text-lg text-white">
+      <h1 className="mt-2 font-bold">STORY</h1>
+      <h1 className="my-2 text-justify">
+        In the digital world, there was a legendary treasure hidden away. It was
+        guarded by tough codes and tricky algorithms. Some people called them
+        tech-savvy adventurers. They were the ones who went on quests to find
+        the treasure. They searched through the virtual world, decoding messages
+        and finding hidden scripts.
+      </h1>
+      <button
+        onClick={() => setIntro(false)}
+        type="submit"
+        className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
+const Security = ({ setQuiz }) => {
+  const [intro, setIntro] = useState(true);
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
   const [error, setError] = useState(false);
@@ -12,7 +36,7 @@ const Ascii = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/4", {
+        const response = await fetch(serverUrl + "/question/1", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -22,7 +46,7 @@ const Ascii = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("logic gate");
+          setQuiz("pattern");
         } else {
           setError(true);
         }
@@ -31,18 +55,15 @@ const Ascii = ({ setQuiz }) => {
       }
     }
   };
-  return (
+  return intro ? (
+    <Intro setIntro={setIntro} />
+  ) : (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2 text-justify">
-        As the adventurers teamed up to tackle the challenges together. They
-        used their skills in problem-solving to overcome each obstacle.
-        <br />
-        Unlock the next clue with the ancient language of ASCII.
-        <br />
-        01001001 01101110 01110011 01110100 01100001 01100111 01110010 01100001
-        01101101
+        Along the way, they had to face challenges like where the digital flames
+        dance, a wall stands tall, guarding secrets untold, this protective
+        shield guards against unauthorized access
       </h1>
-
       <form
         action=""
         className="text-left flex flex-col justify-start items-center"
@@ -70,4 +91,4 @@ const Ascii = ({ setQuiz }) => {
   );
 };
 
-export default Ascii;
+export default Security;

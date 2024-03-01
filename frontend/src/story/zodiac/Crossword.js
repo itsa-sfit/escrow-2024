@@ -6,7 +6,7 @@ const Intro = ({ setIntro }) => {
   console.log("Intro");
   return (
     <div className="font-medium text-lg text-white">
-      <h1 className="mt-2 font-bold">--- STORY ---</h1>
+      <h1 className="mt-2 font-bold">STORY</h1>
       <h1 className="my-2">
         In the dimly lit room, you found an old, dusty crossword puzzle
         scattered across a table. The squares contain cryptic clues that, when

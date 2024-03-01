@@ -1,30 +1,26 @@
-import React from 'react'
+import React from "react";
+import Security from "./Security";
+import Pattern from "./Pattern";
+import Time from "./Time";
+import Ascii from "./Ascii";
+import LogicaGate from "./LogicGate";
+import CeaserCypher from "./CeaserCypher";
+import Program from "./Program";
+import Insta from "./Insta";
 
-import Instagram from "./Instagram";
-
-
-import Treasure from './Treasure';
-import Adventure from './Adventure';
-import Coding from './Coding';
-import Steganography from './Steganography';
-import Ascii from './Ascii';
-import Cipher from './Cipher';
-import Coding2 from './Coding2';
-
-const Digital = ({quiz, setQuiz}) => {
+const Digital = ({ quiz, setQuiz }) => {
   return (
     <div>
-      {quiz === "adventure" && <Adventure setQuiz={setQuiz} />}
-        {quiz === "coding" && <Coding setQuiz={setQuiz} />}
-        {quiz === "stegano" && <Steganography setQuiz={setQuiz} />}
-        {quiz === "ascii" && <Ghost setQuiz={setQuiz} />}
-        {quiz === "logical" && <Ascii setQuiz={setQuiz} />}
-        {quiz === "cipher" && <Cipher setQuiz={setQuiz} />}
-        {quiz === "codingg2" && <Coding2 setQuiz={setQuiz} />}
-        {quiz === "last" && <Treasure setQuiz={setQuiz} />}
-        {quiz === "success" && <h1>Success</h1>}
+      {quiz === "security" && <Security setQuiz={setQuiz} />}
+      {quiz === "pattern" && <Pattern setQuiz={setQuiz} />}
+      {quiz === "time" && <Time setQuiz={setQuiz} />}
+      {quiz === "ascii" && <Ascii setQuiz={setQuiz} />}
+      {quiz === "logic gate" && <LogicaGate setQuiz={setQuiz} />}
+      {quiz === "ceaser cypher" && <CeaserCypher setQuiz={setQuiz} />}
+      {quiz === "program" && <Program setQuiz={setQuiz} />}
+      {quiz === "insta" && <Insta setQuiz={setQuiz} />}
     </div>
-  )
-}
+  );
+};
 
-export default Digital
+export default Digital;

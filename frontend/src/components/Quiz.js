@@ -5,6 +5,7 @@ import { serverUrl } from "../setup";
 import Zodiac from "../story/zodiac/Zodiac";
 import HarryPotter from "../story/harrypotter/harrypotter";
 import Success from "./Success";
+import Digital from "../story/digital/Digital";
 
 const getQuestion = async (token, setQuiz) => {
   try {
@@ -28,7 +29,7 @@ const Quiz = () => {
   getQuestion(user.token, setQuiz);
   return (
     <div className="Quiz grow flex items-center">
-      <div className="glass p-2 mt-2">
+      <div className="glass p-2 mt-2 w-full">
         <div className="text-white text-2xl font-bold flex justify-around mb-2">
           {quiz === "success" ? null : (
             <>
@@ -37,6 +38,8 @@ const Quiz = () => {
             </>
           )}
         </div>
+        {quiz !== "success" && <hr />}
+        <Digital quiz={quiz} setQuiz={setQuiz} />
         <HarryPotter quiz={quiz} setQuiz={setQuiz} />
         <Zodiac quiz={quiz} setQuiz={setQuiz} />
         {quiz === "success" && <Success />}
