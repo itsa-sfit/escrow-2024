@@ -24,7 +24,6 @@ const Killer = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("success");
-          
         } else {
           setError(true);
         }
@@ -41,11 +40,18 @@ const Killer = ({ setQuiz }) => {
         onSubmit={handleSubmit}
       >
         <h1 className="my-2">
-          Unlock the final enigma. The Zodiac Killer's true identity is
-          concealed within the arrangement of letters. The culmination of your
-          journey hinges on this final decryption. Trust the stars, and let the
-          name emerge from the cosmic tapestry you've woven.
+          You stand at the precipice of revelation, poised to guess who spoke
+          these chilling words. your choices hold the key to unveiling the
+          identity of the Zodiac Killer, bringing an end to their cryptic reign.
+          Trust your instincts and plunge into the final chapter of this cosmic
+          quest.
         </h1>
+        <h1 className="mb-2">
+          A series of cryptic quotes, like haunting echoes from the past,
+          confront you with the enigma of the killer's identity.
+        </h1>
+        <em>“When I was a little kid I was just like anybody else.”</em>
+        <em>“I don't care if I live or die. Go ahead and kill me.”</em>
         <input
           type="text"
           className="w-full text-black"

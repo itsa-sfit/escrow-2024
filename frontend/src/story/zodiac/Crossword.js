@@ -6,7 +6,7 @@ const Intro = ({ setIntro }) => {
   console.log("Intro");
   return (
     <div className="font-medium text-lg text-white">
-    <h1 className="mt-2">STORY</h1>
+      <h1 className="mt-2 font-bold">--- STORY ---</h1>
       <h1 className="my-2">
         In the dimly lit room, you found an old, dusty crossword puzzle
         scattered across a table. The squares contain cryptic clues that, when
@@ -80,7 +80,7 @@ const Crossword = ({ setQuiz }) => {
         className="text-left flex flex-col justify-start items-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="mt-2">1.capable of being changed</h1>
+        <h1 className="mt-2 text-center">1.capable of being changed</h1>
         <input
           type="text"
           className="w-full text-black"

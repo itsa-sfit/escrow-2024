@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "../../components/Hint";
 
 const Gravity = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
-  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,8 +22,6 @@ const Gravity = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("animal");
-        } else {
-          setError(true);
         }
       } catch (e) {
         console.log(e);

@@ -38,10 +38,12 @@ const GuessRiddle = ({ setQuiz }) => {
       >
         <h1 className="my-2">
           The enigma doesn't stop there. A riddle, shrouded in mystery, demands
-          your attention. Like a cryptic whisper from the shadows, the riddle
+          your attention. </h1>
+          
+          <em>Like a cryptic whisper from the shadows, the riddle
           challenges your intellect. Every correct answer brings you closer to
-          the heart of the Zodiac's elusive truth.
-        </h1>
+          the heart of the Zodiac's elusive truth.</em>
+       
         <input
           type="text"
           className="w-full text-black"
