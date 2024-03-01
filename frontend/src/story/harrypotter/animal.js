@@ -5,6 +5,7 @@ import useUserContext from "../../hooks/useUserContext";
 const Animal = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +23,8 @@ const Animal = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("prison");
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -29,11 +32,11 @@ const Animal = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg">
-      <h1 className="my-2">
+    <div className="font-medium text-lg text-white text-justify">
+      <h1 className="my-2 font-bold py-3">
         "In the depths of the forest, among the shadows cast by ancient trees,
         dwells the nameless creature, visible only to those who have gazed upon
-        death's embrace. Where might you find me?" (shift 5 Caesar cypher)
+        death's embrace. Where might you find me?"
       </h1>
 
       <form
@@ -41,10 +44,10 @@ const Animal = ({ setQuiz }) => {
         className="text-left flex flex-col justify-start items-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="mt-2">Enter answer :</h1>
         <input
           type="text"
-          className="w-full"
+          className="w-full text-black/70 mt-2 placeholder:text-sm rounded-lg mb-2 px-2 py-1"
+          placeholder="This Input only understand Shift-5 Caesar cypher"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -52,8 +55,7 @@ const Animal = ({ setQuiz }) => {
           }}
         />
         <br />
-        <br />
-
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
           type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "

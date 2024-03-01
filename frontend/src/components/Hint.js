@@ -18,7 +18,7 @@ const Hint = ({ hintText }) => {
   };
 
   return (
-    <div className="Hint">
+    <div className="Hint flex justify-center">
       <h1>{hint}</h1>
       {!hint && (
         <button

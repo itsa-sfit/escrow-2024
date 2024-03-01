@@ -3,10 +3,30 @@ import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 import Hint from "../../components/Hint";
 
+const Intro = ({ setIntro }) => {
+  console.log("Intro");
+  return (
+    <div className="font-medium text-lg text-white">
+      <h1 className="mt-2 font-bold justify-center">STORY</h1>
+      <h1 className="my-2 text-justify italic font-semibold">
+        Getting some control of your fear and after reassuring yourself, you rush to the library to find the forbidden diary as you open the diary the air around you becomes heavy you feel a foreboding presence as you get a grip you turn to the last page of the diary to find the next clue on an old half torn page
+      </h1>
+      <button
+        onClick={() => setIntro(false)}
+        type="submit"
+        className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
 const Potion = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
   const [error, setError] = useState(false);
+  const [intro, setIntro] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,9 +52,11 @@ const Potion = ({ setQuiz }) => {
       }
     }
   };
-  return (
-    <div className="font-medium text-lg text-white">
-      <h1 className="my-2">
+  return intro ? (
+    <Intro setIntro={setIntro} />
+  ) : (
+    <div className="font-medium text-lg text-white text-justify">
+      <h1 className="my-2 font-bold py-3">
         The potion that allows you to take the form of someone else. Enter
         Answer in numbers corresponding to alphabets
       </h1>
@@ -44,10 +66,10 @@ const Potion = ({ setQuiz }) => {
         className="text-left flex flex-col justify-start items-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="mt-2">Enter answer :</h1>
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="What could that potion be?"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -62,7 +84,9 @@ const Potion = ({ setQuiz }) => {
           Submit
         </button>
       </form>
-      <Hint hintText="CAR= 3 1 18, so answer 3 1 18" />
+  
+      <Hint hintText="If answer is CAR= 3 1 18, so enter answer 3118" />
+      
     </div>
   );
 };

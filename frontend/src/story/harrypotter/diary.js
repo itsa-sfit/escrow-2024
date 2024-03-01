@@ -32,11 +32,18 @@ const Diary = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg text-white">
-      <h1 className="my-2">
-        Within shadows deep, a soul's deceit does dwell, Bound in ink and pages,
-        its secrets it does tell. A mirror of its master's darkest lore, What am
-        I, hidden beneath the Chamber's floor?
+    <div className="font-medium text-lg text-white text-justify">
+      <h1 className="mt-2  text-justify italic font-semibold">
+        Only then does the scroll reveal the next Riddle, leading you
+        deeper into the mysteries
+        of Hogwarts and the quest for the hidden treasure.
+
+      </h1>
+      <h1 className="my-2 font-bold ">
+        Riddle 2 : A serpent's whisper, a legacy entwined,
+        In dungeons dark, my secrets I confide.
+        From Slytherin's kin, my purpose was spun,
+        What am I, guarding beneath the castle's run?
       </h1>
 
       <form
@@ -46,7 +53,8 @@ const Diary = ({ setQuiz }) => {
       >
         <input
           type="text"
-          className="w-full text-black"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="  Answer the Riddle Here !!"
           name="1"
           value={q1}
           onChange={(e) => {
