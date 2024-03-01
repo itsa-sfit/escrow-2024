@@ -1,8 +1,5 @@
-import React from 'react'
-
 import Instagram from "./Instagram";
 
-import Killer from "./Killer";
 import Audio from './Audio';
 import Photo from './Photo';
 import Ghost from './Ghost';
@@ -14,7 +11,7 @@ import Treasure from './Treasure';
 const Pirate = ({quiz, setQuiz}) => {
   return (
     <div>
-      {quiz === "audio" && <Audio setQuiz={setQuiz} />}
+        {quiz === "audio" && <Audio setQuiz={setQuiz} />}
         {quiz === "instagram" && <Instagram setQuiz={setQuiz} />}
         {quiz === "photo" && <Photo setQuiz={setQuiz} />}
         {quiz === "ghost" && <Ghost setQuiz={setQuiz} />}
@@ -24,7 +21,7 @@ const Pirate = ({quiz, setQuiz}) => {
         {quiz === "treasure" && <Treasure setQuiz={setQuiz} />}
         {quiz === "success" && <h1>Success</h1>}
     </div>
-  )
-}
+  );
+};
 
 export default Pirate

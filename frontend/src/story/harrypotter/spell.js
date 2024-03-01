@@ -14,6 +14,11 @@ const Intro = ({ setIntro }) => {
         In a forgotten corner, you find an old vase hidden beneath a cloak
         , inside of which lies the next clue, written on a worn scrap of paper.
       </h1>
+      <img
+        src="img/HarryPotter/3.jpeg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
       <button
         onClick={() => setIntro(false)}
         type="submit"

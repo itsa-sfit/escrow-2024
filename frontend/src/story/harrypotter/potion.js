@@ -11,6 +11,11 @@ const Intro = ({ setIntro }) => {
       <h1 className="my-2 text-justify italic font-semibold">
         Getting some control of your fear and after reassuring yourself, you rush to the library to find the forbidden diary as you open the diary the air around you becomes heavy you feel a foreboding presence as you get a grip you turn to the last page of the diary to find the next clue on an old half torn page
       </h1>
+      <img
+        src="img/HarryPotter/2.jpeg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
       <button
         onClick={() => setIntro(false)}
         type="submit"

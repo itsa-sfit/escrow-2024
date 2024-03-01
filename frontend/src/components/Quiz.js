@@ -6,6 +6,7 @@ import Zodiac from "../story/zodiac/Zodiac";
 import HarryPotter from "../story/harrypotter/harrypotter";
 import Success from "./Success";
 import Digital from "../story/digital/Digital";
+import Pirate from "../story/pirate/Pirate";
 
 const getQuestion = async (token, setQuiz) => {
   try {
@@ -42,6 +43,7 @@ const Quiz = () => {
         <Digital quiz={quiz} setQuiz={setQuiz} />
         <HarryPotter quiz={quiz} setQuiz={setQuiz} />
         <Zodiac quiz={quiz} setQuiz={setQuiz} />
+        <Pirate quiz={quiz} setQuiz={setQuiz} />
         {quiz === "success" && <Success />}
       </div>
     </div>

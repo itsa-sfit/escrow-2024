@@ -24,7 +24,7 @@ const Audio = ({ setQuiz }) => {
         if (json.Correct) {
           setQuiz("prison");
         } else {
-          setError("Incorrect Answer");
+          setError(true);
         }
       } catch (e) {
         console.log(e);
