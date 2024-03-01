@@ -11,6 +11,12 @@ const Intro = ({ setIntro }) => {
       <h1 className="my-2 text-justify italic font-semibold">
         Armed with the knowledge of Polyjuice Potion, you finally get a hold over yourself and make your way to the Hogwarts grounds, where you explore the vast expanse of magical creatures and enchanting landscapes. After a long and a thorough search, you stumble upon a forgotten tome containing the incantation for casting the Patronus Charm, tucked within the roots of the Whomping Willow.
       </h1>
+      <img
+        src="img/HarryPotter/5.jpeg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
+      
       <button
         onClick={() => setIntro(false)}
         type="submit"

@@ -10,6 +10,11 @@ const Intro = ({ setIntro }) => {
       <h1 className="my-2 text-justify italic font-semibold">
         As the adventure continues, you find yourself in the Forbidden Forest, where you navigate the ancient trees and eerie shadows. Amidst the darkness and the eerie presence of a predator, you suddenly encounter the elusive Thestrals, creatures that can only be seen by those who have experienced loss. Tucked within the hoof of one of the Thestrals, they find a small piece of paper with the next clue
       </h1>
+      <img
+        src="img/HarryPotter/7.jpeg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
       <button
         onClick={() => setIntro(false)}
         type="submit"
