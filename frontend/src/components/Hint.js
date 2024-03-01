@@ -8,7 +8,7 @@ const Hint = ({ hintText }) => {
 
   const handleClick = async () => {
     setHint(hintText);
-    const response = await fetch(serverUrl + "/hintcount/count", {
+    await fetch(serverUrl + "/hintcount/count", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
