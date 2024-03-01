@@ -8,7 +8,7 @@ const Crossword = ({ setQuiz }) => {
   const [q3, setQ3] = useState("");
   const [q4, setQ4] = useState("");
   const { user } = useUserContext();
-  const { error, setError } = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,10 +98,10 @@ const Crossword = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Sumbit
+          Submit
         </button>
       </form>
     </div>

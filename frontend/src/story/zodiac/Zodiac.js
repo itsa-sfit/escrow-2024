@@ -19,7 +19,6 @@ const Zodiac = ({quiz, setQuiz}) => {
         {quiz === "missing grid" && <MissingGrid setQuiz={setQuiz} />}
         {quiz === "guess riddle" && <GuessRiddle setQuiz={setQuiz} />}
         {quiz === "killer" && <Killer setQuiz={setQuiz} />}
-        {quiz === "success" && <h1>Success</h1>}
     </div>
   )
 }

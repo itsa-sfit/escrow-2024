@@ -6,6 +6,7 @@ import Hint from "../../components/Hint";
 const Killer = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +24,9 @@ const Killer = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("success");
+          
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -51,12 +55,12 @@ const Killer = ({ setQuiz }) => {
             setQ1(e.target.value);
           }}
         />
-
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Sumbit
+          Submit
         </button>
       </form>
       <Hint

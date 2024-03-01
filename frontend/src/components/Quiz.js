@@ -4,6 +4,7 @@ import useUserContext from "../hooks/useUserContext";
 import { serverUrl } from "../setup";
 import Zodiac from "../story/zodiac/Zodiac";
 import HarryPotter from "../story/harrypotter/harrypotter";
+import Success from "./Success";
 
 const getQuestion = async (token, setQuiz) => {
   try {
@@ -34,6 +35,9 @@ const Quiz = () => {
         </div>
         <HarryPotter quiz={quiz} setQuiz={setQuiz} />
         <Zodiac quiz={quiz} setQuiz={setQuiz} />
+        {quiz === "success" && (
+        <Success />
+      )}
       </div>
     </div>
   );

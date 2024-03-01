@@ -3,14 +3,14 @@ import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 import Hint from "../../components/Hint";
 
-const Audio = ({setQuiz}) => {
+const Audio = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (q1) {
-      const data = { answer: `${q1}` }
+      const data = { answer: `${q1}` };
       try {
         const response = await fetch(serverUrl + "/question/1", {
           method: "POST",
@@ -32,9 +32,10 @@ const Audio = ({setQuiz}) => {
   return (
     <div className="font-medium text-lg">
       <h1 className="my-2">
-      Disturbed Parrot’s voice tells about the map of treasure lies in a ocean and mention the id of ocean account
+        Disturbed Parrot’s voice tells about the map of treasure lies in a ocean
+        and mention the id of ocean account
       </h1>
-      
+
       <form action="" className="text-left" onSubmit={handleSubmit}>
         <h1 className="mt-2">Enter answer :</h1>
         <input
@@ -49,13 +50,12 @@ const Audio = ({setQuiz}) => {
         <br />
         <br />
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg"
         >
-          Sumbit
+          Submit
         </button>
       </form>
-   
     </div>
   );
 };

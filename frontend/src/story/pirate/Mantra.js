@@ -53,10 +53,10 @@ const Mantra = ({ setQuiz }) => {
         <br />
         <br />
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg"
         >
-          Sumbit
+          Submit
         </button>
       </form>
       <Hint hintText={"first two words rhyme with  each other"} />

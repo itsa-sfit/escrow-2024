@@ -32,7 +32,7 @@ const Founder = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg">
+    <div className="font-medium text-lg text-white">
       <h1 className="my-2">
         I am the first name of the headmaster who founded the house of the brave
         and Loyal. Where can you find me ?
@@ -46,7 +46,7 @@ const Founder = ({ setQuiz }) => {
         <h1 className="mt-2">Enter answer :</h1>
         <input
           type="text"
-          className="w-full"
+          className="w-full text-black"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -56,10 +56,10 @@ const Founder = ({ setQuiz }) => {
         {error && <p className="text-red-500">Incorrect answer</p>}
 
         <button
-          type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+          type="submit"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%]"
         >
-          Sumbit
+          Submit
         </button>
       </form>
     </div>

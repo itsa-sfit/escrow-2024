@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Gravity = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,8 @@ const Gravity = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("animal");
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -29,7 +33,7 @@ const Gravity = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg">
+    <div className="font-medium text-lg text-white">
       <h1 className="my-2">
         The spell that makes things soar, like never before, is the one you'll
         adore. With a swish and flick of the wand, objects float, as if carried
@@ -56,10 +60,10 @@ const Gravity = ({ setQuiz }) => {
         <br />
 
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Sumbit
+          Submit
         </button>
       </form>
     </div>

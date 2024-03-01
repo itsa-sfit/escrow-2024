@@ -18,11 +18,7 @@ const HarryPotter = ({ quiz, setQuiz }) => {
       {quiz === "gravity" && <Gravity setQuiz={setQuiz} />}
       {quiz === "animal" && <Animal setQuiz={setQuiz} />}
       {quiz === "prison" && <Prison setQuiz={setQuiz} />}
-      {quiz === "success" && (
-        <h1 className="text-white text-2xl font-bold">
-          Congratulations! You have completed the quiz
-        </h1>
-      )}
+      
     </div>
   );
 };

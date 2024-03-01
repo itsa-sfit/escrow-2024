@@ -4,13 +4,13 @@ import useUserContext from "../../hooks/useUserContext";
 
 const Diary = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
-  const [q2, setQ2] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (q1 && q2) {
-      const data = { answer: `${q1},${q2}` };
+    if (q1) {
+      const data = { answer: `${q1}` };
       try {
         const response = await fetch(serverUrl + "/question/2", {
           method: "POST",
@@ -23,6 +23,8 @@ const Diary = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("potion");
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -30,16 +32,11 @@ const Diary = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg">
+    <div className="font-medium text-lg text-white">
       <h1 className="my-2">
-        RIDDLE 1 : Within shadows deep, a soul's deceit does dwell, Bound in ink
-        and pages, its secrets it does tell. A mirror of its master's darkest
-        lore, What am I, hidden beneath the Chamber's floor?
-      </h1>
-      <h1 className="my-2">
-        RIDDLE 2 : A serpent's whisper, a legacy entwined, In dungeons dark, my
-        secrets I confide. From Slytherin's kin, my purpose was spun, What am I,
-        guarding beneath the castle's run?
+        Within shadows deep, a soul's deceit does dwell, Bound in ink and pages,
+        its secrets it does tell. A mirror of its master's darkest lore, What am
+        I, hidden beneath the Chamber's floor?
       </h1>
 
       <form
@@ -47,34 +44,22 @@ const Diary = ({ setQuiz }) => {
         className="text-left flex flex-col justify-start items-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="mt-2">Enter answer of RIDDLE 1 :</h1>
         <input
           type="text"
-          className="w-full"
+          className="w-full text-black"
           name="1"
           value={q1}
           onChange={(e) => {
             setQ1(e.target.value);
           }}
         />
-        <h1 className="mt-2">Enter answer of RIDDLE 2 :</h1>
-        <input
-          type="text"
-          className="w-full"
-          name="2"
-          value={q2}
-          onChange={(e) => {
-            setQ2(e.target.value);
-          }}
-        />
-        <br />
-        <br />
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
 
         <button
-          type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+          type="submit"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%]"
         >
-          Sumbit
+          Submit
         </button>
       </form>
     </div>

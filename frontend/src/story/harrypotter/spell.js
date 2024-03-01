@@ -55,10 +55,10 @@ const Spell = ({ setQuiz }) => {
         <br />
 
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Sumbit
+          Submit
         </button>
       </form>
     </div>

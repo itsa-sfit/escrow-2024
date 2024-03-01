@@ -6,7 +6,7 @@ import Hint from "../../components/Hint";
 const Instagram = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
-  const { error, setError } = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,10 +56,10 @@ const Instagram = ({ setQuiz }) => {
         />
 
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
-        >        
-        {error && <h1 className="text-red-500">Incorrect answer</h1>}
+        >
+          {error && <h1 className="text-red-500">Incorrect answer</h1>}
           Submit
         </button>
       </form>
