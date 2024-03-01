@@ -1,20 +1,25 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useUserContext from "../hooks/useUserContext";
 
-const Logout = ({ dispatch }) => {
+const Logout = () => {
   const navigate = useNavigate();
-  console.log("dispatch");
-
-  useEffect(() => {
+  const {dispatch} = useUserContext();
+  const handleClick = () => {
     // Perform the logout logic here
     dispatch({ type: "LOGOUT" });
 
     // Redirect to the "/login" route
     navigate("/login");
-  }, [dispatch, navigate]);
+  }
+  console.log("dispatch");
+
 
   // You can render something if needed, or null if not necessary
-  return null;
+  return (
+    <button onClick={handleClick}>
+      <span class="material-symbols-rounded">logout</span>
+    </button>
+  );
 };
 
 export default Logout;
