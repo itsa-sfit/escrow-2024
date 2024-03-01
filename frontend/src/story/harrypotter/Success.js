@@ -8,11 +8,11 @@ const Intro = ({ setIntro }) => {
     <div className="font-medium text-lg text-white">
       <h1 className="mt-2 font-bold">The End</h1>
       <h1 className="my-2 text-justify">
-        In the dimly lit room, you found an old, dusty crossword puzzle
-        scattered across a table. The squares contain cryptic clues that, when
-        solved, unveil words related to the elusive Zodiac. As you piece
-        together the crossword, hidden messages emerge, guiding you to the next
-        challenge.
+        With all eight clues deciphered,you race back to Hogwarts,with your
+        heart pounding with excitement you follow the path laid out before you,
+        eager to uncover the secrets of the hidden treasure within the castle's
+        walls.and as you take the treasure you know now you will finally get to
+        your world
       </h1>
       <button
         onClick={() => setIntro(false)}
