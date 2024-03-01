@@ -30,8 +30,12 @@ const Quiz = () => {
     <div className="Quiz grow flex items-center">
       <div className="glass p-2 mt-2">
         <div className="text-white text-2xl font-bold flex justify-around mb-2">
-          <span>Time Counter:</span>
-          <Timer {...user.start_time} />
+          {quiz === "success" ? null : (
+            <>
+              <span>Time Counter:</span>
+              <Timer {...user.start_time} />
+            </>
+          )}
         </div>
         <HarryPotter quiz={quiz} setQuiz={setQuiz} />
         <Zodiac quiz={quiz} setQuiz={setQuiz} />
