@@ -35,7 +35,7 @@ const Instruction = () => {
         /> */}
         <h1 className="text-center text-2xl">Instructions:</h1>
         <p>
-          The maximum time alloted to complete the game is 7200s . After the
+          The maximum time alloted to complete the game is 120 minutes . After the
           time period, the session will expire.
         </p>
       </div>
