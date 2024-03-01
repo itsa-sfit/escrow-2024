@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Potion = ({setQuiz}) => {
+const Potion = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (q1) {
-      const data = { answer: `${q1}` }
+      const data = { answer: `${q1}` };
       try {
         const response = await fetch(serverUrl + "/question/3", {
           method: "POST",
@@ -31,10 +31,16 @@ const Potion = ({setQuiz}) => {
   return (
     <div className="font-medium text-lg">
       <h1 className="my-2">
-      The potion that allows you to take the form of someone else. Enter Answer in numbers corresponding to alphabets (For eg CAR= 3 1 18, so answer 3 1 18)
+        The potion that allows you to take the form of someone else. Enter
+        Answer in numbers corresponding to alphabets (For eg CAR= 3 1 18, so
+        answer 3 1 18)
       </h1>
-      
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <h1 className="mt-2">Enter answer :</h1>
         <input
           type="text"
@@ -47,9 +53,10 @@ const Potion = ({setQuiz}) => {
         />
         <br />
         <br />
+
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>

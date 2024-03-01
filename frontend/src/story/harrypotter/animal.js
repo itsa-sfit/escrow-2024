@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Animal = ({setQuiz}) => {
+const Animal = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (q1) {
-      const data = { answer: `${q1}` }
+      const data = { answer: `${q1}` };
       try {
         const response = await fetch(serverUrl + "/question/7", {
           method: "POST",
@@ -31,11 +31,16 @@ const Animal = ({setQuiz}) => {
   return (
     <div className="font-medium text-lg">
       <h1 className="my-2">
-      "In the depths of the forest, among the shadows cast by ancient trees, dwells the nameless creature, visible only to those who have gazed upon death's embrace. Where might you find me?"
-      (shift 5 Caesar cypher)
+        "In the depths of the forest, among the shadows cast by ancient trees,
+        dwells the nameless creature, visible only to those who have gazed upon
+        death's embrace. Where might you find me?" (shift 5 Caesar cypher)
       </h1>
-      
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <h1 className="mt-2">Enter answer :</h1>
         <input
           type="text"
@@ -48,9 +53,10 @@ const Animal = ({setQuiz}) => {
         />
         <br />
         <br />
+
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>

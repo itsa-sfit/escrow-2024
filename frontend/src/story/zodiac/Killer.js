@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Killer = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -30,13 +31,16 @@ const Killer = ({ setQuiz }) => {
   };
   return (
     <div className="font-medium text-lg text-white">
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <h1 className="my-2">
           Unlock the final enigma. The Zodiac Killer's true identity is
           concealed within the arrangement of letters. The culmination of your
           journey hinges on this final decryption. Trust the stars, and let the
-          name emerge from the cosmic tapestry you've woven. (The previous
-          answer holds the clue to the Zodiac Killer’s name)
+          name emerge from the cosmic tapestry you've woven.
         </h1>
         <input
           type="text"
@@ -50,11 +54,16 @@ const Killer = ({ setQuiz }) => {
 
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
       </form>
+      <Hint
+        hintText={
+          "The previous answer holds the clue to the Zodiac Killer’s name"
+        }
+      />
     </div>
   );
 };

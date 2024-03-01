@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const GuessRiddle = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -30,12 +31,16 @@ const GuessRiddle = ({ setQuiz }) => {
   };
   return (
     <div className="font-medium text-lg text-white">
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <h1 className="my-2">
           The enigma doesn't stop there. A riddle, shrouded in mystery, demands
           your attention. Like a cryptic whisper from the shadows, the riddle
           challenges your intellect. Every correct answer brings you closer to
-          the heart of the Zodiac's elusive truth. (hint:Name of a zodiac sign)
+          the heart of the Zodiac's elusive truth.
         </h1>
         <input
           type="text"
@@ -49,11 +54,12 @@ const GuessRiddle = ({ setQuiz }) => {
 
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
       </form>
+      <Hint hintText={"Name of a zodiac sign"} />
     </div>
   );
 };

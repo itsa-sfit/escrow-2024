@@ -8,8 +8,8 @@ import Logout from "./Logout";
 const Home = () => {
   const { user } = useUserContext();
   return (
-    <div className="Home h-dvh">
-      <div className="flex justify-around">
+    <div className="Home h-dvh flex flex-col">
+      <div className="flex grow-0 justify-around">
         <span className="escrow text-black text-4xl">ESCROW 2024</span>
         <Logout />
       </div>

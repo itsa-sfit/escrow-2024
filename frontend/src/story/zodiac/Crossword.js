@@ -8,6 +8,7 @@ const Crossword = ({ setQuiz }) => {
   const [q3, setQ3] = useState("");
   const [q4, setQ4] = useState("");
   const { user } = useUserContext();
+  const { error, setError } = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +26,8 @@ const Crossword = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("instagram");
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -46,7 +49,11 @@ const Crossword = ({ setQuiz }) => {
         className="w-full h-auto object-contain rounded-lg shadow-lg"
       />
 
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <h1 className="mt-2">1.capable of being changed</h1>
         <input
           type="text"
@@ -89,11 +96,10 @@ const Crossword = ({ setQuiz }) => {
             setQ4(e.target.value);
           }}
         />
-        <br />
-        <br />
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>

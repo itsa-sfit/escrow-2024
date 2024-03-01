@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const CircularChart = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -8,6 +9,7 @@ const CircularChart = ({ setQuiz }) => {
   const [q3, setQ3] = useState("");
   const [q4, setQ4] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +27,8 @@ const CircularChart = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("alphabet grid");
+        }  else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -38,11 +42,14 @@ const CircularChart = ({ setQuiz }) => {
         Armed with the professor's Instagram profile, you have to decipher the
         celestial chart. Words from the crossword unveil a hidden narrative,
         revealing the Zodiac's secrets. With each puzzle piece falling into
-        place, you edge closer to unmasking the elusive killer (hint four zodiac
-        signs relevant to the previous answers)
+        place, you edge closer to unmasking the elusive killer
       </h1>
 
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           className="w-full text-black my-2"
@@ -79,14 +86,15 @@ const CircularChart = ({ setQuiz }) => {
             setQ4(e.target.value);
           }}
         />
-        <br />
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
       </form>
+      <Hint hintText={"four zodiac signs relevant to the previous answers"} />
     </div>
   );
 };

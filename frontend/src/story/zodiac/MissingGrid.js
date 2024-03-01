@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const MissingGrid = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -38,8 +39,7 @@ const MissingGrid = ({ setQuiz }) => {
         leaving gaps in the cosmic puzzle. Your task, Investigator, is to
         decipher the celestial clues and identify the absent zodiac symbols,
         completing the table that holds the key to unraveling the Zodiac
-        Killer's secrets. (hint: search for everything related to all the zodiac
-        signs)
+        Killer's secrets.
       </h1>
       <img
         src="img/missingGrid.png"
@@ -47,7 +47,11 @@ const MissingGrid = ({ setQuiz }) => {
         className="w-full h-auto object-contain rounded-lg shadow-lg"
       />
 
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           className="w-full text-black my-2"
@@ -75,14 +79,14 @@ const MissingGrid = ({ setQuiz }) => {
             setQ3(e.target.value);
           }}
         />
-        <br />
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
       </form>
+      <Hint hintText="search for everything related to all the zodiac signs" />
     </div>
   );
 };

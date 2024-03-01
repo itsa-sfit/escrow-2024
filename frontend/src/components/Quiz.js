@@ -26,7 +26,7 @@ const Quiz = () => {
   const [quiz, setQuiz] = useState("");
   getQuestion(user.token, setQuiz);
   return (
-    <div className="Quiz">
+    <div className="Quiz grow flex items-center">
       <div className="glass p-2 mt-2">
         <div className="text-white text-2xl font-bold flex justify-around mb-2">
           <span>Quiz {quiz}</span>

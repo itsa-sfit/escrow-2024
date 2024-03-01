@@ -5,7 +5,7 @@ import { serverUrl } from "../setup";
 const Instruction = () => {
   const { user, dispatch } = useUserContext();
   const handleClick = async () => {
-    const response = await fetch(serverUrl + "/time/start", {
+    const response = await fetch(serverUrl + "/time/startads", {
       headers: {
         Authorization: "Bearer " + user.token,
         Accept: "application/json",
@@ -27,8 +27,7 @@ const Instruction = () => {
   return (
     <div className="Instruction">
       <h1 className="text-black mt-5 second-font">
-        Hi! Welcome to Escrow, where you will dive into the virtual world of
-        DeezNuts
+        Hi! Welcome to Escrow, where you will dive into the virtual world of 
       </h1>
       <div className="glass text-white w-full text-left second-font p-2 my-3">
         {/* <ImgTag

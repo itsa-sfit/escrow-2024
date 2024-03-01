@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 
-const Prison = ({setQuiz}) => {
+const Prison = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (q1) {
-      const data = { answer: `${q1}` }
+      const data = { answer: `${q1}` };
       try {
         const response = await fetch(serverUrl + "/question/8", {
           method: "POST",
@@ -31,14 +31,16 @@ const Prison = ({setQuiz}) => {
   return (
     <div className="font-medium text-lg">
       <h1 className="my-2">
-      In the wizarding world, a prison that's grim,
-      For the darkest of souls, it's not a whim.
-      Where dementors loom and the sea churns black,
-      Name this place, can you keep on track?
-      (American sign language)
+        In the wizarding world, a prison that's grim, For the darkest of souls,
+        it's not a whim. Where dementors loom and the sea churns black, Name
+        this place, can you keep on track? (American sign language)
       </h1>
-      
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <h1 className="mt-2">Enter answer :</h1>
         <input
           type="text"
@@ -51,9 +53,10 @@ const Prison = ({setQuiz}) => {
         />
         <br />
         <br />
+
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>

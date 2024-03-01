@@ -10,6 +10,7 @@ const AlphabetGrid = ({ setQuiz }) => {
   const [q5, setQ5] = useState("");
   const [q6, setQ6] = useState("");
   const { user } = useUserContext();
+  const { error, setError } = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,8 @@ const AlphabetGrid = ({ setQuiz }) => {
         const json = await response.json();
         if (json.Correct) {
           setQuiz("binary grid");
+        }  else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -40,7 +43,7 @@ const AlphabetGrid = ({ setQuiz }) => {
         letters. Little do you know, these letters conceal the secrets of the
         zodiac signs. By carefully selecting and rearranging the appropriate
         alphabets, unlock the celestial symbols that hold crucial information in
-        the pursuit of the elusive Zodiac Killer. (Find six zodiac signs)
+        the pursuit of the elusive Zodiac Killer.
       </h1>
       <img
         src="img/alphabetGrid.png"
@@ -48,7 +51,11 @@ const AlphabetGrid = ({ setQuiz }) => {
         className="w-full h-auto object-contain rounded-lg shadow-lg"
       />
 
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           className="w-full text-black my-2"
@@ -103,10 +110,10 @@ const AlphabetGrid = ({ setQuiz }) => {
             setQ6(e.target.value);
           }}
         />
-        <br />
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
