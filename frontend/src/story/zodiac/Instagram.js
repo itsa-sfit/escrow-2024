@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Instagram = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -30,13 +31,16 @@ const Instagram = ({ setQuiz }) => {
   };
   return (
     <div className="font-medium text-lg text-white">
-      <form action="" className="text-left" onSubmit={handleSubmit}>
+      <form
+        action=""
+        className="text-left flex items-center justify-center flex-col"
+        onSubmit={handleSubmit}
+      >
         <h1 className="my-2">
           The professor's name conceals the digital path you seek. Look to the
           scholarly stars, where wisdom meets temporality, to unravel the
           ciphered username on Instagram. In the leap, find the key to open the
-          next door in our cosmic quest. (hint- professor’s name and this leap
-          year)
+          next door in our cosmic quest.
         </h1>
         <input
           type="text"
@@ -50,11 +54,12 @@ const Instagram = ({ setQuiz }) => {
 
         <button
           type="sumbit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
           Sumbit
         </button>
       </form>
+      <Hint hintText="The professor's name is the key to the next door." />
     </div>
   );
 };
