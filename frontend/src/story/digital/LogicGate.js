@@ -12,6 +12,7 @@ const LogicaGate = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
+        
         const response = await fetch(serverUrl + "/question/5", {
           method: "POST",
           body: JSON.stringify(data),
