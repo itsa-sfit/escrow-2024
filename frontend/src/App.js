@@ -24,7 +24,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-      <div className="mobile-hidden w-full h-screen flex items-center justify-center">
+      <div className="mobile-hidden w-full h-screen items-center justify-center">
         <div>
           <span className="material-symbols-rounded">phone_iphone</span>
           <h1>This site is only accessable in mobile</h1>
