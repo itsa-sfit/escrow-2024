@@ -11,6 +11,7 @@ const Intro = ({ setIntro }) => {
       <a
         className="block text-blue-400"
         target="_blank"
+        rel="noreferrer"
         href="https://youtu.be/hTZXDZDGwtE?t=97"
       >
         Youtube link
