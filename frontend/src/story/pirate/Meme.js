@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "../../components/Hint";
 
-const Ghost = ({ setQuiz }) => {
+const Meme = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
   const [error, setError] = useState(false);
@@ -13,7 +12,7 @@ const Ghost = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/4", {
+        const response = await fetch(serverUrl + "/question/3", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -23,9 +22,9 @@ const Ghost = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("riddle");
+          setQuiz("ghostcolor");
         } else {
-          setError(false);
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -35,12 +34,16 @@ const Ghost = ({ setQuiz }) => {
   return (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2 text-justify">
-        Moving forward with courage and bravery, you encounter a wandering ghost
-        booing of the people who come in search for the treasure..after a long
-        chatter, Ghost agrees to let him pass if he pays him respect by guessing
-        his color.The ghost asks:What color am I?
+        A wanderer amidst the waves, I encountered a weathered pirate amidst the
+        wreckage of a forgotten vessel. Grateful for my assistance, he bestowed
+        upon me a peculiar compass, its needle trembling with the echoes of his
+        name.Guess who is he?
       </h1>
-
+      <img
+        src="./pirates/meme.jpg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
       <form
         action=""
         className="text-left flex flex-col justify-start items-center"
@@ -64,9 +67,8 @@ const Ghost = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
-      <Hint hintText={"colour's hex code"} />
     </div>
   );
 };
 
-export default Ghost;
+export default Meme;

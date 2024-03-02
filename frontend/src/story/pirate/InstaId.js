@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "../../components/Hint";
 
-const Photo = ({ setQuiz }) => {
+const InstaId = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/3", {
+        const response = await fetch(serverUrl + "/question/1", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -22,7 +22,9 @@ const Photo = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("prison");
+          setQuiz("instapost");
+        } else {
+          setError(true);
         }
       } catch (e) {
         console.log(e);
@@ -30,37 +32,37 @@ const Photo = ({ setQuiz }) => {
     }
   };
   return (
-    <div className="font-medium text-lg">
-      <h1 className="my-2">
-        A wanderer amidst the waves, I encountered a weathered pirate amidst the
-        wreckage of a forgotten vessel. Grateful for my assistance, he bestowed
-        upon me a peculiar compass, its needle trembling with the echoes of his
-        name.Guess who is he?
+    <div className="font-medium text-lg text-white">
+      <h1 className="my-2 text-justify">
+        Disturbed Parrot's voice tells about the map of treasure lies in a ocean
+        and mention the id of ocean account
       </h1>
 
-      <form action="" className="text-left" onSubmit={handleSubmit}>
-        <h1 className="mt-2">Enter answer :</h1>
+      <form
+        action=""
+        className="text-left flex flex-col justify-start items-center"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
-          className="w-full"
+          className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
+          placeholder="Enter answer"
           name="1"
           value={q1}
           onChange={(e) => {
             setQ1(e.target.value);
           }}
         />
-        <br />
-        <br />
+        {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="submit"
-          className="border-2 border-white p-2 m-2 rounded-lg"
+          type="sumbit"
+          className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Submit
+          Sumbit
         </button>
       </form>
-      <Hint />
     </div>
   );
 };
 
-export default Photo;
+export default InstaId;

@@ -1,19 +1,41 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "../../components/Hint";
 
-const Ghost = ({ setQuiz }) => {
+const Intro = ({ setIntro }) => {
+  console.log("Intro");
+  return (
+    <div className="font-medium text-lg text-white">
+      <h1 className="mt-2 font-bold">STORY</h1>
+      <h1 className="my-2 text-justify">
+        After braving the tumultuous seas, the ship finally docked at a
+        mysterious collection of islands. Consulting the map, next step wasn't
+        straightforward. Instead, a cryptic riddle awaited, teasing the location
+        of the coveted treasure
+      </h1>
+      <button
+        onClick={() => setIntro(false)}
+        type="submit"
+        className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
+const Riddle = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
   const [error, setError] = useState(false);
+  const [intro, setIntro] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/4", {
+        const response = await fetch(serverUrl + "/question/5", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -23,23 +45,25 @@ const Ghost = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("riddle");
+          setQuiz("zodiac sign");
         } else {
-          setError(false);
+          setError(true);
         }
       } catch (e) {
         console.log(e);
       }
     }
   };
-  return (
+  return intro ? (
+    <Intro setIntro={setIntro} />
+  ) : (
     <div className="font-medium text-lg text-white">
-      <h1 className="my-2 text-justify">
-        Moving forward with courage and bravery, you encounter a wandering ghost
-        booing of the people who come in search for the treasure..after a long
-        chatter, Ghost agrees to let him pass if he pays him respect by guessing
-        his color.The ghost asks:What color am I?
+      <h1 className="my-2 font-bold text-justify">
+        Riddle: Im a land of silence where life takes its last breath Surrounded
+        by waves a solitary depth Isolated and still with secrets untold Deep in
+        the darkness lies a grim reaper where visitors enter but none ever hold
       </h1>
+      <h1 className="my-2 text-justify">What am I ?</h1>
 
       <form
         action=""
@@ -64,9 +88,8 @@ const Ghost = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
-      <Hint hintText={"colour's hex code"} />
     </div>
   );
 };
 
-export default Ghost;
+export default Riddle;

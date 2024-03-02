@@ -3,9 +3,33 @@ import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
 import Hint from "../../components/Hint";
 
-const Ghost = ({ setQuiz }) => {
+const Intro = ({ setIntro }) => {
+  console.log("Intro");
+  return (
+    <div className="font-medium text-lg text-white">
+      <h1 className="mt-2 font-bold">STORY</h1>
+      <h1 className="my-2 text-justify">
+        As I approached, the cave loomed, its entrance barricaded by massive
+        rocks. The challenge seemed insurmountable, but whispers of an ancient
+        mantra lingered in my mind. Each syllable held the promise of unlocking
+        the cave's secrets. With trembling resolve, I prepared to speak, hoping
+        to unveil the treasures hidden within.
+      </h1>
+      <button
+        onClick={() => setIntro(false)}
+        type="submit"
+        className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
+const Braille = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
+  const [intro, setIntro] = useState(true);
   const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -13,7 +37,7 @@ const Ghost = ({ setQuiz }) => {
     if (q1) {
       const data = { answer: `${q1}` };
       try {
-        const response = await fetch(serverUrl + "/question/4", {
+        const response = await fetch(serverUrl + "/question/7", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -23,23 +47,25 @@ const Ghost = ({ setQuiz }) => {
         });
         const json = await response.json();
         if (json.Correct) {
-          setQuiz("riddle");
+          setQuiz("riddle 2");
         } else {
-          setError(false);
+          setError(true);
         }
       } catch (e) {
         console.log(e);
       }
     }
   };
-  return (
+  return intro ? (
+    <Intro setIntro={setIntro} />
+  ) : (
     <div className="font-medium text-lg text-white">
-      <h1 className="my-2 text-justify">
-        Moving forward with courage and bravery, you encounter a wandering ghost
-        booing of the people who come in search for the treasure..after a long
-        chatter, Ghost agrees to let him pass if he pays him respect by guessing
-        his color.The ghost asks:What color am I?
-      </h1>
+      <h1 className="my-2 text-justify">Solve Braille Language crossword</h1>
+      <img
+        src="./pirates/brille.png"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
 
       <form
         action=""
@@ -64,9 +90,13 @@ const Ghost = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
-      <Hint hintText={"colour's hex code"} />
+      <Hint
+        hintText={
+          "First two words rhyme with each other ----- ----- ------ ---"
+        }
+      />
     </div>
   );
 };
 
-export default Ghost;
+export default Braille;
