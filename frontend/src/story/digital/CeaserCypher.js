@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const CeaserCypher = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -41,7 +42,7 @@ const CeaserCypher = ({ setQuiz }) => {
         digital domain.
       </h1>
       <h1 className="my-2 text-justify">
-        Cipher Text:- <code>v j t i f n k v t y k i r z c</code>
+        Cipher Text:- <code>k y i x u c z k i n z x g o r</code>
       </h1>
 
       <form
@@ -67,6 +68,7 @@ const CeaserCypher = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
+      <Hint hintText={"use shift 6 ceaser cypher"}/>
     </div>
   );
 };
