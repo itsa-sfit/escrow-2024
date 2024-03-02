@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "../../components/Hint";
 
 const Killer = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
@@ -70,11 +69,9 @@ const Killer = ({ setQuiz }) => {
           Submit
         </button>
       </form>
-      <Hint
-        hintText={
-          "The previous answer holds the clue to the Zodiac Killer’s name"
-        }
-      />
+      <div className="Hint flex justify-center">
+        <h1>Hint of digital world lies on the insta id Escrowtechtrail</h1>
+      </div>
     </div>
   );
 };
