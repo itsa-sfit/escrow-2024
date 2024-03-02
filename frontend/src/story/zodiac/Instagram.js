@@ -64,7 +64,7 @@ const Instagram = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
-      <Hint hintText="The professor's name is the key to the next door." />
+      <Hint hintText="The professor's name and current leap year is the key to the next door." />
     </div>
   );
 };

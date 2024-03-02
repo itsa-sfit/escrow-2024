@@ -8,11 +8,10 @@ const Intro = ({ setIntro }) => {
     <div className="font-medium text-lg text-white">
       <h1 className="mt-2 font-bold">STORY</h1>
       <h1 className="my-2 text-justify">
-        In the dimly lit room, you found an old, dusty crossword puzzle
-        scattered across a table. The squares contain cryptic clues that, when
-        solved, unveil words related to the elusive Zodiac. As you piece
-        together the crossword, hidden messages emerge, guiding you to the next
-        challenge.
+        In the bustling city of Constellara, a renowned astrologer, Professor
+        Celestine, has been found murdered in his observatory. As the lead
+        detective on the case, you delve into a web of cryptic clues left behind
+        by the killer, who seems to have a penchant for the stars.
       </h1>
       <button
         onClick={() => setIntro(false)}
