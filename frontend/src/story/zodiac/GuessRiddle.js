@@ -41,14 +41,28 @@ const GuessRiddle = ({ setQuiz }) => {
       >
         <h1 className="my-2 text-justify">
           The enigma doesn't stop there. A riddle, shrouded in mystery, demands
-          your attention.{" "}
+          your attention. Like a cryptic whisper from the shadows, the riddle
+          challenges your intellect. Every correct answer brings you closer to
+          the heart of the Zodiac's elusive truth.
         </h1>
 
         <em className="text-justify">
-          Like a cryptic whisper from the shadows, the riddle challenges your
-          intellect. Every correct answer brings you closer to the heart of the
-          Zodiac's elusive truth.
+          I am the twins in the sky, a celestial pair,
         </em>
+
+        <em className="text-justify">
+          Opposite yet together, a cosmic affair.
+        </em>
+
+        <em className="text-justify">
+          Mercury guides me, with wit and with grace,
+        </em>
+
+        <em className="text-justify">
+          In May or June, you'll find my embrace.
+        </em>
+
+        <h1>What am I?</h1>
 
         <input
           type="text"
