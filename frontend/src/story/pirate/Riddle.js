@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "../../components/Hint";
 
 const Intro = ({ setIntro }) => {
   console.log("Intro");
@@ -88,6 +89,7 @@ const Riddle = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
+      <Hint hintText={"Translate to English"}/>
     </div>
   );
 };

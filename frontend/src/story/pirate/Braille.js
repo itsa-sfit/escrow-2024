@@ -75,7 +75,7 @@ const Braille = ({ setQuiz }) => {
         <input
           type="text"
           className="w-full text-black/70 mt-2 placeholder:text-base rounded-lg mb-2 px-2 py-1"
-          placeholder="Enter answer"
+          placeholder="Enter Answer: ----- ----- ------ ---"
           name="1"
           value={q1}
           onChange={(e) => {
@@ -90,11 +90,7 @@ const Braille = ({ setQuiz }) => {
           Sumbit
         </button>
       </form>
-      <Hint
-        hintText={
-          "First two words rhyme with each other ----- ----- ------ ---"
-        }
-      />
+      <Hint hintText={"First two words rhyme with each other"} />
     </div>
   );
 };

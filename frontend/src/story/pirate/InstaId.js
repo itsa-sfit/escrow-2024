@@ -1,11 +1,36 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Player from "./Audio";
+
+const Intro = ({ setIntro }) => {
+  console.log("Intro");
+  return (
+    <div className="font-medium text-lg text-white">
+      <h1 className="mt-2 font-bold">STORY</h1>
+      <a
+        className="block text-blue-400"
+        target="_blank"
+        href="https://youtu.be/hTZXDZDGwtE?t=97"
+      >
+        Youtube link
+      </a>
+      <button
+        onClick={() => setIntro(false)}
+        type="submit"
+        className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
+      >
+        Next
+      </button>
+    </div>
+  );
+};
 
 const InstaId = ({ setQuiz }) => {
   const [q1, setQ1] = useState("");
   const { user } = useUserContext();
   const [error, setError] = useState("");
+  const [intro, setIntro] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,12 +56,19 @@ const InstaId = ({ setQuiz }) => {
       }
     }
   };
-  return (
+  return intro ? (
+    <Intro setIntro={setIntro} />
+  ) : (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2 text-justify">
         Disturbed Parrot's voice tells about the map of treasure lies in a ocean
-        and mention the id of ocean account
+        and mention the id of instagram account
       </h1>
+      <Player
+        url={
+          "https://res.cloudinary.com/dkqwol1ur/video/upload/v1709362733/escrow/clue_uaoqfx.mp3"
+        }
+      />
 
       <form
         action=""

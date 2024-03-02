@@ -62,9 +62,16 @@ const Riddle2 = ({ setQuiz }) => {
       <h1 className="my-2 text-justify">
         Your journey throughout the voyage has been commendable. Your wits and
         reselience to the very end is second to none....But you failed to notice
-        one thing:"you began this journey with me and you will end it with me,
-        follow the path where shadows whisper secrets, where the silent sentinel
-        of ebony feathers guards the key to untold riches
+        one thing:"
+        <br />
+        <strong className="text-blue-200">
+          you began this journey with me
+        </strong>{" "}
+        and <strong className="text-blue-200">you will end it with me</strong>,
+        follow the path where <strong className="text-blue-200">shadows</strong>{" "}
+        whisper secrets, where the silent sentinel of
+        <strong className="text-blue-200">ebony feathers</strong> guards the key
+        to untold riches
       </h1>
 
       <form
