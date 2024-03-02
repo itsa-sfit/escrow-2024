@@ -97,7 +97,7 @@ const CircularChart = ({ setQuiz }) => {
           Submit
         </button>
       </form>
-      <Hint hintText={"four zodiac signs relevant to the previous answers"} />
+      <Hint hintText={"four zodiac signs relevant to the previous answers. Combine answers from the crossword in pairs of two and refer the circular chart to get 4 zodiac symbols"} />
     </div>
   );
 };
