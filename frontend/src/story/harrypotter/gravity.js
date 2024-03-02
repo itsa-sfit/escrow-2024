@@ -10,6 +10,11 @@ const Intro = ({ setIntro }) => {
       <h1 className="my-2 text-justify italic font-semibold">
         With the fifth clue deciphered, you head to the greenhouses, where you encounter a variety of magical plants and herbs. Among them, you find the Mandrake, a plant known for its distinctive cry when uprooted from its pot. Hidden beneath the leaves, they discover a small piece of paper with the next clue
       </h1>
+      <img
+        src="img/HarryPotter/4.jpeg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
       <button
         onClick={() => setIntro(false)}
         type="submit"

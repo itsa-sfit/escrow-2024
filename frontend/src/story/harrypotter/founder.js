@@ -15,6 +15,11 @@ const Intro = ({ setIntro }) => {
         To save thyself, thou must unravel the riddles and uncover the forsaken treasure.
         Across the hall you see Professor McGonagall, step forward holding a weathered scroll in her hands.your heart races with fear and your heart starts throbbing . Unsure what is there inside the scroll with shaky hands , you retrieve the scroll hidden within the lion's paw and with no options left you unravel it. The scroll bears a riddle:
       </h1>
+      <img
+        src="img/HarryPotter/1.jpeg"
+        alt=""
+        className="w-full h-auto object-contain rounded-lg shadow-lg"
+      />
       <button
         onClick={() => setIntro(false)}
         type="submit"
