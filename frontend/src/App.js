@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import BG from "./components/BG";
 import useUserContext from "./hooks/useUserContext";
+import TheEnd from "./components/TheEnd";
 
 function App() {
   const { user } = useUserContext();
@@ -15,8 +16,9 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={user ? <Home /> : <Login/>}
+              element=<TheEnd/>
             />
+            {/* <Route path="/ajay" element={}/> */}
             {/* <Route
               path="/login"
               element={user ? <Navigate to="/" /> : <Login />}
