@@ -69,6 +69,9 @@ const Insta = ({ setQuiz }) => {
           Submit
         </button>
       </form>
+      <div className="Hint flex justify-center">
+      <h1>hint of digital world lies on the insta id Escrowtechtrail</h1>
+    </div>
     </div>
   );
 };
