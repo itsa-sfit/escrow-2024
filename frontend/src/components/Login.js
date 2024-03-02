@@ -17,7 +17,7 @@ const Login = () => {
         let data = new FormData();
         data.append("username", username);
         data.append("password", password);
-        const response = await fetch(serverUrl+ "/user/login", {
+        const response = await fetch(serverUrl + "/user/login", {
           method: "POST",
           body: data,
           headers: {
@@ -26,9 +26,9 @@ const Login = () => {
         });
 
         const json = await response.json();
+        console.log(json);
         if (!response.ok) {
-          const { message } = json;
-          setError(message);
+          setError(json.detail);
         } else {
           dispatch({
             type: "LOGIN",
