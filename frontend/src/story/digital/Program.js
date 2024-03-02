@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
+import Hint from "./Hint";
 
 const Intro = ({ setIntro }) => {
   console.log("Intro");
@@ -101,6 +102,7 @@ print("The output is:", b)
           Sumbit
         </button>
       </form>
+      <Hint hintText={"Solve the error and decipher the python code."} />
     </div>
   );
 };
