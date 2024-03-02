@@ -66,13 +66,15 @@ const Program = ({ setQuiz }) => {
 number2 = 36348
 number3 = 76134
 number4 = 98247
+
 result1 = (((number1 * 2) + 10) / 5) - 1000
-result2 = ((((number2 * 2) + 123) - 987) ^ 2)
+result2 = ((((number2 * 2) + 123) - 987)  ^ 2
 result3 = (3 * number3) + (789 / 3) - (25^2) % 7
 result4 = ((((number4 * 2) + 6789) - 5432) / 3) % 7
-result=result1+result2+result3+result4
-a=int(result)
-print("The output is:", a)
+# result is addition of all results
+result=result1result2+result3+result4
+a=int(res)
+print("The output is:", b)
 `}
         </code>
       </pre>
