@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { serverUrl } from "../../setup";
 import useUserContext from "../../hooks/useUserContext";
-import Hint from "./Hint";
+import Hint from "./../../components/Hint";
 
 const Intro = ({ setIntro }) => {
   console.log("Intro");
