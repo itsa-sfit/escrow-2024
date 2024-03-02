@@ -39,7 +39,8 @@ const Ascii = ({ setQuiz }) => {
         <br />
         Unlock the next clue with the ancient language of ASCII.
         <br />
-        01001001 01101110 01110011 01110100 01100001 01100111 01110010 01100001 01101101
+        01001001 01101110 01110011 01110100 01100001 01100111 01110010 01100001
+        01101101
       </h1>
 
       <form
@@ -59,10 +60,10 @@ const Ascii = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Sumbit
+          Submit
         </button>
       </form>
     </div>

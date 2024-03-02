@@ -64,10 +64,10 @@ const BinaryGrid = ({ setQuiz }) => {
         />
         {error && <h1 className="text-red-500">Incorrect answer</h1>}
         <button
-          type="sumbit"
+          type="submit"
           className="border-2 border-white p-2 m-2 rounded-lg w-[50%] "
         >
-          Sumbit
+          Submit
         </button>
       </form>
       <Hint hintText="one single number indicating the number of letters in sign" />
