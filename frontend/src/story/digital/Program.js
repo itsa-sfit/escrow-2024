@@ -61,7 +61,7 @@ const Program = ({ setQuiz }) => {
   ) : (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2 text-justify">Challenge:</h1>
-      <pre className="text-left">
+      <pre className="text-left text-yellow-500">
         <code>
           {`number1 = 28368
 number2 = 36348

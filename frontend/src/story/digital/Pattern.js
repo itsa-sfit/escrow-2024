@@ -61,7 +61,7 @@ const Pattern = ({ setQuiz }) => {
   ) : (
     <div className="font-medium text-lg text-white">
       <h1 className="my-2 text-justify">Challenge:</h1>
-      <pre className="text-left">
+      <pre className="text-left text-yellow-400">
         <code>
           {`def print_letter_1(size):
   for i in range(size):
